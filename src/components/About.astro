@@ -1,0 +1,75 @@
+---
+interface Props {
+  class?: string;
+}
+
+const { class: className = '' } = Astro.props;
+---
+
+<section class:list={['py-16 lg:py-20 bg-white', className]} id="about">
+  <div class="container-bf">
+    <div class="flex flex-col gap-6">
+
+      <!-- Row 1: Title -->
+      <div>
+        <h1 class="text-[clamp(2rem,5vw,3.25rem)] font-medium leading-tight text-bf-black animate-on-scroll">
+          VIZUAL IDENTIFIKATSIYA
+          <br />
+          VA INNOVATSIYA AGENTLIGI
+        </h1>
+      </div>
+
+      <!-- Row 2: Description (right aligned) -->
+      <div class="flex justify-end">
+        <p class="text-body-lg text-bf-gray leading-relaxed max-w-[697px] about__desc animate-on-scroll delay-100">
+          Bright Future Design – zamonaviy UX/UI dizayn, brend konsepsiyasi, grafik dizayn va AI asosidagi yechimlarni ishlab chiqamiz. Brendingizni strategik yondashuv bilan shakllantirib, vizual kommunikatsiyani mustahkamlaymiz va brend qiymatini oshiramiz.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+  .about__desc {
+    margin-top: 30px;
+    margin-right: 30px;
+  }
+
+  /* Scroll animations */
+  .animate-on-scroll {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+
+  .animate-on-scroll.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .delay-100 {
+    transition-delay: 100ms;
+  }
+</style>
+
+<script>
+  // Intersection Observer for scroll animations
+  const observerOptions = {
+    root: null,
+    rootMargin: '0px 0px -50px 0px',
+    threshold: 0.1
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, observerOptions);
+
+  document.querySelectorAll('.animate-on-scroll').forEach(el => {
+    observer.observe(el);
+  });
+</script>

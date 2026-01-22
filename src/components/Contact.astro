@@ -1,0 +1,350 @@
+---
+// Contact Form section - single column layout
+
+const services = [
+  { name: 'UX/UI dizayni', selected: false, wide: false },
+  { name: 'Brending', selected: true, wide: false },
+  { name: 'Motion dizayn', selected: false, wide: false },
+  { name: 'Illustratsiya', selected: false, wide: false },
+  { name: '3D Dizayn', selected: false, wide: false },
+  { name: 'Ilovani noldan boshlab yaratish', selected: false, wide: true },
+  { name: 'Saytni noldan boshlab yaratish', selected: false, wide: true },
+];
+---
+
+<section class="contact py-16 lg:py-24 bg-white" id="contact">
+  <div class="container-bf">
+    
+    <div class="contact__content">
+      
+      <!-- Title -->
+      <h2 class="contact__title animate-on-scroll">
+        Bizga hamma narsani aytib bering
+      </h2>
+      
+      <!-- Address & Contacts -->
+      <div class="contact__info animate-on-scroll">
+        <p class="contact__address-text">
+          "Bright Future" ofisi, P9X8+432, Andijon, Andijon Viloyati
+        </p>
+        
+        <div class="contact__contacts">
+          <!-- Email -->
+          <a href="mailto:BrightFutureDesign@gmail.com" class="contact__link">
+            <svg class="contact__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M17 20.5H7c-3 0-5-1.5-5-5v-7c0-3.5 2-5 5-5h10c3 0 5 1.5 5 5v7c0 3.5-2 5-5 5Z"/>
+              <path d="m17 9-3.13 2.5c-1.03.82-2.72.82-3.75 0L7 9"/>
+            </svg>
+            <span class="contact__divider"></span>
+            <span>BrightFutureDesign@gmail.com</span>
+          </a>
+          
+          <!-- Phone -->
+          <a href="tel:+998552037171" class="contact__link">
+            <svg class="contact__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M21.97 18.33c0 .36-.08.73-.25 1.09-.17.36-.39.7-.68 1.02-.49.54-1.03.93-1.64 1.18-.6.25-1.25.38-1.95.38-1.02 0-2.11-.24-3.26-.73s-2.3-1.15-3.44-1.98a28.75 28.75 0 0 1-3.28-2.8 28.414 28.414 0 0 1-2.79-3.27c-.82-1.14-1.48-2.28-1.96-3.41C2.24 8.67 2 7.58 2 6.54c0-.68.12-1.33.36-1.93.24-.61.62-1.17 1.15-1.67C4.15 2.31 4.85 2 5.59 2c.28 0 .56.06.81.18.26.12.49.3.67.56l2.32 3.27c.18.25.31.48.4.7.09.21.14.42.14.61 0 .24-.07.48-.21.71-.13.23-.32.47-.56.71l-.76.79c-.11.11-.16.24-.16.4 0 .08.01.15.03.23.03.08.06.14.08.2.18.33.49.76.93 1.28.45.52.93 1.05 1.45 1.58.54.53 1.06 1.02 1.59 1.47.52.44.95.74 1.29.92.05.02.11.05.18.08.08.03.16.04.25.04.17 0 .3-.06.41-.17l.76-.75c.25-.25.49-.44.72-.56.23-.14.46-.21.71-.21.19 0 .39.04.61.13.22.09.45.22.7.39l3.31 2.35c.26.18.44.39.55.64.1.25.16.5.16.78Z"/>
+            </svg>
+            <span class="contact__divider"></span>
+            <span>(55) 203 71 71</span>
+          </a>
+        </div>
+      </div>
+      
+      <!-- Service Selection -->
+      <div class="contact__services animate-on-scroll">
+        <p class="contact__services-label">Men qiziqaman...</p>
+        
+        <div class="contact__services-grid">
+          {services.map((service) => (
+            <button 
+              type="button"
+              class:list={[
+                'contact__service-btn',
+                service.selected && 'contact__service-btn--active', service.wide && 'contact__service-btn--wide'
+              ]}
+              data-service={service.name}
+            >
+              {service.name}
+            </button>
+          ))}
+        </div>
+      </div>
+      
+      <!-- Form Fields -->
+      <form class="contact__form animate-on-scroll">
+        <div class="contact__field">
+          <input 
+            type="text" 
+            name="name" 
+            placeholder="Ismingiz"
+            class="contact__input"
+            required
+          />
+        </div>
+        
+        <div class="contact__field">
+          <input 
+            type="tel" 
+            name="phone" 
+            placeholder="Telefon raqamingiz"
+            class="contact__input"
+            required
+          />
+        </div>
+        
+        <div class="contact__field contact__field--textarea">
+          <textarea 
+            name="message" 
+            placeholder="Loyihangiz haqida aytib bering"
+            class="contact__input contact__textarea"
+            rows="3"
+          ></textarea>
+        </div>
+        
+        <!-- Submit Button -->
+        <button type="submit" class="contact__submit-btn group">
+          <span class="contact__submit-text">Yuborish</span>
+          <span class="contact__submit-icon">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M3.33334 8H12.6667M12.6667 8L8.00001 3.33334M12.6667 8L8.00001 12.6667" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </button>
+      </form>
+      
+    </div>
+    
+  </div>
+</section>
+
+<style>
+  .contact__content {
+    max-width: 1120px;
+  }
+
+  /* Title */
+  .contact__title {
+    font-size: clamp(2rem, 5vw, 3.25rem);
+    font-weight: 500;
+    line-height: 1.2;
+    color: var(--color-black, #000);
+    margin-bottom: 3rem;
+  }
+
+  /* Address */
+  .contact__address-text {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--color-black, #000);
+    margin-bottom: 1.5rem;
+    max-width: 340px;
+  }
+
+  .contact__contacts {
+    display: flex;
+    
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 5rem;
+  }
+
+  .contact__link {
+    display: flex;
+    
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 1.125rem;
+    font-weight: 500;
+    color: var(--color-black, #000);
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  .contact__link:hover {
+    color: var(--color-primary, #13499F);
+  }
+
+  .contact__icon {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+  }
+
+  .contact__divider {
+    width: 1px;
+    height: 32px;
+    background: rgba(140, 140, 140, 0.3);
+  }
+
+  /* Services Selection */
+  .contact__services {
+    margin-bottom: 2rem;
+  }
+
+  .contact__services-label {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: rgba(140, 140, 140, 0.3);
+    margin-bottom: 2rem;
+  }
+
+  .contact__services-grid {
+    display: flex;
+    
+    flex-wrap: wrap;
+    gap: 24px;
+  }
+
+  .contact__service-btn {
+    display: flex;
+    width: 180px;
+    height: 80px;
+    padding: 32px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid rgba(140, 140, 140, 0.3);
+    border-radius: 50px;
+    background: white;
+    font-family: 'Urbanist', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--color-black, #000);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+  }
+
+  .contact__service-btn--wide { width: auto; }
+
+  .contact__service-btn:hover {
+    border-color: var(--color-black, #000);
+  }
+
+  .contact__service-btn--active {
+    background: var(--color-black, #000);
+    border-color: var(--color-black, #000);
+    color: white;
+  }
+
+  /* Form */
+  .contact__form {
+    display: flex;
+    
+    flex-direction: column;
+    gap: 3rem;
+    margin-top: 3rem;
+  }
+
+  .contact__field {
+    border-bottom: 1px solid rgba(140, 140, 140, 0.3);
+    padding-bottom: 0.625rem;
+  }
+
+  .contact__field--textarea {
+    padding-bottom: 5rem;
+  }
+
+  .contact__input {
+    width: 100%;
+    border: none;
+    outline: none;
+    font-family: 'Urbanist', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--color-black, #000);
+    background: transparent;
+  }
+
+  .contact__input::placeholder {
+    color: rgba(140, 140, 140, 0.3);
+  }
+
+  .contact__textarea {
+    resize: none;
+    min-height: 60px;
+  }
+
+  /* Submit Button - same as Header Button */
+  .contact__submit-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    padding: 0;
+    margin-top: 1rem;
+  }
+
+  .contact__submit-text {
+    display: flex;
+    
+    width: 133px;
+    height: 36px;
+    padding: 12px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    background: var(--color-primary, #13499F);
+    border-radius: 50px;
+    font-family: 'Urbanist', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    color: white;
+    transition: background 0.25s ease;
+  }
+
+  .contact__submit-btn:hover .contact__submit-text {
+    background: var(--color-primary-hover, #0F3A80);
+  }
+
+  .contact__submit-icon {
+    width: 36px;
+    height: 36px;
+    background: var(--color-primary, #13499F);
+    border-radius: 50%;
+    display: flex;
+    
+    align-items: center;
+    justify-content: center;
+    color: white;
+    transition: background 0.25s ease, transform 0.25s ease;
+  }
+
+  .contact__submit-btn:hover .contact__submit-icon {
+    background: var(--color-primary-hover, #0F3A80);
+    transform: translateX(2px);
+  }
+
+  .contact__submit-icon svg {
+    transition: transform 0.25s ease;
+  }
+
+  .contact__submit-btn:hover .contact__submit-icon svg {
+    transform: translateX(2px);
+  }
+
+</style>
+
+<script>
+  // Intersection Observer
+  const contactObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.contact .animate-on-scroll').forEach(el => {
+    contactObserver.observe(el);
+  });
+
+  // Service button toggle
+  document.querySelectorAll('.contact__service-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      btn.classList.toggle('contact__service-btn--active');
+    });
+  });
+</script>

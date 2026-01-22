@@ -1,0 +1,67 @@
+/* ========================================
+   BRIGHT FUTURE - Design Tokens
+   Extracted from Figma Design
+   ======================================== */
+
+:root {
+  /* ========== COLORS ========== */
+  --color-black: #000000;
+  --color-dark: #141414;
+  --color-gray: #8C8C8C;
+  --color-gray-light: #F6F6F6;
+  --color-beige: #F2F1EC;
+  --color-white: #FFFFFF;
+  --color-primary: #13499F;
+  --color-primary-hover: #0F3A80;
+  --color-primary-active: #0A2960;
+  
+  /* Opacity Variants */
+  --color-gray-30: rgba(140, 140, 140, 0.3);
+  --color-black-20: rgba(0, 0, 0, 0.2);
+  --color-white-90: rgba(255, 255, 255, 0.9);
+  
+  /* ========== TYPOGRAPHY ========== */
+  --font-family: 'Urbanist', system-ui, -apple-system, sans-serif;
+  
+  /* Font Weights */
+  --font-regular: 400;
+  --font-medium: 500;
+  --font-semibold: 600;
+  
+  /* Line Heights */
+  --leading-none: 1;
+  --leading-tight: 1.2;
+  --leading-normal: 1.4;
+  
+  /* ========== SPACING ========== */
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  
+  /* ========== LAYOUT ========== */
+  --container-max: 90rem;
+  --container-padding: 4.375rem;
+  --container-padding-mobile: 1.25rem;
+  --header-height: 3.625rem;
+  --hero-height: 45rem;
+  
+  /* ========== BORDER RADIUS ========== */
+  --radius-sm: 0.75rem;
+  --radius-md: 2rem;
+  --radius-full: 3.125rem;
+  
+  /* ========== TRANSITIONS ========== */
+  --transition-fast: 150ms ease;
+  --transition-base: 250ms ease;
+  --transition-slow: 350ms ease;
+  
+  /* ========== Z-INDEX ========== */
+  --z-dropdown: 100;
+  --z-sticky: 200;
+  --z-modal: 300;
+}

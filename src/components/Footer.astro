@@ -1,0 +1,200 @@
+---
+// Footer section
+
+const menuLinks = [
+  { name: 'Xizmatlar', href: '#services' },
+  { name: 'Portfolio', href: '#projects' },
+];
+
+const socialLinks = [
+  { name: 'Instagram', href: 'https://instagram.com/bright_future_korea' },
+  { name: 'Behance', href: 'https://behance.net/brightfuture' },
+  { name: 'Dribbble', href: 'https://dribbble.com/brightfuture' },
+  { name: 'Pinterest', href: 'https://pinterest.com/brightfuture' },
+];
+---
+
+<footer class="footer bg-white" id="footer">
+  <div class="container-bf">
+
+    <div class="footer__content">
+
+      <!-- Logo -->
+      <div class="footer__logo">
+        <a href="#" class="footer__logo-link" aria-label="Bright Future - Bosh sahifa">
+          <img
+            src="/logo.svg"
+            alt="Bright Future"
+            class="h-12 w-auto"
+          />
+        </a>
+      </div>
+
+      <!-- Navigation -->
+      <div class="footer__nav">
+
+        <!-- Menu -->
+        <div class="footer__col">
+          <h4 class="footer__col-title">Menyu</h4>
+          <ul class="footer__list">
+            {menuLinks.map((link) => (
+              <li>
+                <a href={link.href} class="footer__link">{link.name}</a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- Social -->
+        <div class="footer__col">
+          <h4 class="footer__col-title">Ijtimoiy tarmoqlar</h4>
+          <ul class="footer__list">
+            {socialLinks.map((link) => (
+              <li>
+                <a href={link.href} target="_blank" rel="noopener" class="footer__link">{link.name}</a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- Contact -->
+        <div class="footer__col">
+          <h4 class="footer__col-title">Kontakt</h4>
+          <div class="footer__contacts">
+            <a href="tel:+998552037171" class="footer__contact-link">
+              <svg class="footer__contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M21.97 18.33c0 .36-.08.73-.25 1.09-.17.36-.39.7-.68 1.02-.49.54-1.03.93-1.64 1.18-.6.25-1.25.38-1.95.38-1.02 0-2.11-.24-3.26-.73s-2.3-1.15-3.44-1.98a28.75 28.75 0 0 1-3.28-2.8 28.414 28.414 0 0 1-2.79-3.27c-.82-1.14-1.48-2.28-1.96-3.41C2.24 8.67 2 7.58 2 6.54c0-.68.12-1.33.36-1.93.24-.61.62-1.17 1.15-1.67C4.15 2.31 4.85 2 5.59 2c.28 0 .56.06.81.18.26.12.49.3.67.56l2.32 3.27c.18.25.31.48.4.7.09.21.14.42.14.61 0 .24-.07.48-.21.71-.13.23-.32.47-.56.71l-.76.79c-.11.11-.16.24-.16.4 0 .08.01.15.03.23.03.08.06.14.08.2.18.33.49.76.93 1.28.45.52.93 1.05 1.45 1.58.54.53 1.06 1.02 1.59 1.47.52.44.95.74 1.29.92.05.02.11.05.18.08.08.03.16.04.25.04.17 0 .3-.06.41-.17l.76-.75c.25-.25.49-.44.72-.56.23-.14.46-.21.71-.21.19 0 .39.04.61.13.22.09.45.22.7.39l3.31 2.35c.26.18.44.39.55.64.1.25.16.5.16.78Z"/>
+              </svg>
+              <span class="footer__contact-divider"></span>
+              <span>(55) 203 71 71</span>
+            </a>
+
+            <a href="https://t.me/bright_future_korea" target="_blank" rel="noopener" class="footer__contact-link">
+              <svg class="footer__contact-icon" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/>
+              </svg>
+              <span class="footer__contact-divider"></span>
+              <span>bright_future_korea</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</footer>
+
+<style>
+  .footer {
+    padding: 4rem 0;
+    border-top: 1px solid rgba(140, 140, 140, 0.1);
+  }
+
+  .footer__content {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+  }
+
+  @media (min-width: 768px) {
+    .footer__content {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 4rem;
+    }
+  }
+
+  /* Logo */
+  .footer__logo {
+    flex-shrink: 0;
+  }
+
+  .footer__logo-link {
+    display: block;
+    color: var(--color-black, #000);
+    transition: opacity 0.3s ease;
+  }
+
+  .footer__logo-link:hover {
+    opacity: 0.7;
+  }
+
+  /* Navigation */
+  .footer__nav {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+
+  @media (min-width: 768px) {
+    .footer__nav {
+      display: flex;
+      gap: 5rem;
+    }
+  }
+
+  .footer__col-title {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--color-gray, #8C8C8C);
+    margin-bottom: 1rem;
+  }
+
+  .footer__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .footer__link {
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--color-black, #000);
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  .footer__link:hover {
+    color: var(--color-primary, #13499F);
+  }
+
+  /* Contact Links */
+  .footer__contacts {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .footer__contact-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--color-black, #000);
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  .footer__contact-link:hover {
+    color: var(--color-primary, #13499F);
+  }
+
+  .footer__contact-icon {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+  }
+
+  .footer__contact-divider {
+    width: 1px;
+    height: 18px;
+    background: rgba(140, 140, 140, 0.3);
+  }
+</style>

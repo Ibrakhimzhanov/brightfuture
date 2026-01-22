@@ -1,0 +1,43 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import About from '../components/About.astro';
+import Stats from '../components/Stats.astro';
+import Projects from '../components/Projects.astro';
+import Clients from '../components/Clients.astro';
+import Approach from '../components/Approach.astro';
+import Services from '../components/Services.astro';
+import Contact from '../components/Contact.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout 
+  title="Bright Future - Vizual Identifikatsiya va Innovatsiya Agentligi"
+  description="Zamonaviy UX/UI dizayn, brend konsepsiyasi, grafik dizayn va AI asosidagi yechimlarni ishlab chiqamiz. Bright Future Design agentligi."
+>
+  <Header />
+  
+  <main>
+    <Hero 
+      imageUrl="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=1440&h=720&fit=crop&q=80"
+      imageAlt="Bright Future dizayn portfolio - kreativ loyihalar"
+    />
+    
+    <About />
+    
+    <Stats />
+    
+    <Projects />
+    
+    <Clients />
+    
+    <Approach />
+    
+    <Services />
+    
+    <Contact />
+  </main>
+  
+  <Footer />
+</Layout>

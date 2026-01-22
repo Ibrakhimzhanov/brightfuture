@@ -1,0 +1,214 @@
+---
+import ProjectCard from './ui/ProjectCard.astro';
+import Button from './ui/Button.astro';
+
+import snappyImg from '../assets/projects/snappy.png';
+import rizqImg from '../assets/projects/rizq.png';
+import oleoImg from '../assets/projects/oleo.png';
+import procareImg from '../assets/projects/procare.png';
+
+interface Project {
+  category: string;
+  image: string;
+  number: string;
+  total: string;
+  tag: string;
+  title: string;
+  href: string;
+}
+
+const projects: Project[] = [
+  {
+    category: 'Desktop',
+    image: snappyImg.src,
+    number: '01',
+    total: '04',
+    tag: 'Website',
+    title: 'Snappy',
+    href: '/projects/snappy'
+  },
+  {
+    category: '3D Loyihalash',
+    image: rizqImg.src,
+    number: '02',
+    total: '04',
+    tag: '3D Dizayn',
+    title: 'Rizq',
+    href: '/projects/rizq'
+  },
+  {
+    category: 'Branding',
+    image: oleoImg.src,
+    number: '03',
+    total: '04',
+    tag: 'Branding',
+    title: 'Oleo',
+    href: '/projects/mimi'
+  },
+  {
+    category: 'Desktop ilova\nMobile ilova',
+    image: procareImg.src,
+    number: '04',
+    total: '04',
+    tag: 'Desktop',
+    title: 'ProCare',
+    href: '/projects/procare'
+  }
+];
+---
+
+<section class="projects py-12 lg:py-20 bg-white overflow-hidden" id="projects">
+  <div class="container-bf">
+
+    <!-- Section Header -->
+    <div class="projects__header flex flex-col items-center gap-6 mb-12 lg:mb-20">
+
+      <!-- Logo Mark -->
+      <div class="projects__logo animate-on-scroll">
+        <img src="/logo.svg" alt="Bright Future" class="h-10 w-auto" />
+      </div>
+
+      <!-- Description -->
+      <div class="projects__desc text-center max-w-md animate-on-scroll delay-100">
+        <p class="text-h4 font-medium text-bf-black leading-normal">
+          Bizning ishimiz puxta tahlil, ijodiy
+        </p>
+        <p class="text-h4 font-medium text-bf-black leading-normal">
+          fikrlash va mukammallikka intilish mahsulidir.
+        </p>
+      </div>
+
+      <!-- Vertical Line -->
+      <div class="projects__line animate-on-scroll delay-200" style="width: 0.5px; height: 103px; background: black;"></div>
+
+      <!-- Big Title -->
+      <h2 class="projects__title text-center animate-on-scroll delay-300">
+        Loyihalar
+      </h2>
+
+    </div>
+
+    <!-- Projects List -->
+    <div class="projects__list flex flex-col gap-12 lg:gap-16">
+      {projects.map((project, index) => (
+        <ProjectCard
+          category={project.category}
+          image={project.image}
+          number={project.number}
+          total={project.total}
+          tag={project.tag}
+          title={project.title}
+          href={project.href}
+        />
+      ))}
+    </div>
+
+    <!-- View All Button -->
+    <div class="projects__cta flex justify-center mt-16 lg:mt-20">
+      <a href="/projects" class="projects__btn group">
+        <span class="projects__btn-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+        <span class="projects__btn-text">Barcha loyihalar</span>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  /* Big Title */
+  .projects__title {
+    font-size: clamp(4rem, 15vw, 15.625rem);
+    font-weight: 500;
+    line-height: 1;
+    color: var(--color-black, #000);
+    letter-spacing: -0.02em;
+  }
+
+  /* Scroll animations */
+  .animate-on-scroll {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+
+  .animate-on-scroll.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .delay-100 { transition-delay: 100ms; }
+  .delay-200 { transition-delay: 200ms; }
+  .delay-300 { transition-delay: 300ms; }
+
+  /* View All Button */
+  .projects__btn {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    height: 72px;
+    padding: 0.5rem;
+    padding-right: 1.5rem;
+    background: var(--color-beige, #F2F1EC);
+    border-radius: 50px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .projects__btn:hover {
+    background: var(--color-gray-light, #F6F6F6);
+    transform: translateX(4px);
+  }
+
+  .projects__btn-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: var(--color-primary, #13499F);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+  }
+
+  .projects__btn:hover .projects__btn-icon {
+    transform: translateX(4px);
+  }
+
+  .projects__btn-text {
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: var(--color-black, #000);
+  }
+</style>
+
+<script>
+  // Intersection Observer for scroll animations
+  const observerOptions = {
+    root: null,
+    rootMargin: '0px 0px -100px 0px',
+    threshold: 0.1
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, observerOptions);
+
+  // Observe all animated elements
+  document.querySelectorAll('.projects .animate-on-scroll').forEach(el => {
+    observer.observe(el);
+  });
+
+  // Observe project cards
+  document.querySelectorAll('.project-card').forEach(card => {
+    observer.observe(card);
+  });
+</script>

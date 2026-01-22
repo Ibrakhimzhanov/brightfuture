@@ -1,0 +1,229 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import ProjectCard from '../components/ui/ProjectCard.astro';
+
+import snappyImg from '../assets/projects/snappy.png';
+import rizqImg from '../assets/projects/rizq.png';
+import oleoImg from '../assets/projects/oleo.png';
+import procareImg from '../assets/projects/procare.png';
+
+const projects = [
+  {
+    category: 'Desktop',
+    image: snappyImg.src,
+    number: '01',
+    total: '04',
+    tag: 'Website',
+    title: 'Snappy',
+    href: '/projects/snappy'
+  },
+  {
+    category: '3D Loyihalash',
+    image: rizqImg.src,
+    number: '02',
+    total: '04',
+    tag: '3D Dizayn',
+    title: 'Rizq',
+    href: '#'
+  },
+  {
+    category: 'Branding',
+    image: oleoImg.src,
+    number: '03',
+    total: '04',
+    tag: 'Branding',
+    title: 'Oleo',
+    href: '/projects/mimi'
+  },
+  {
+    category: 'Desktop ilova\nMobile ilova',
+    image: procareImg.src,
+    number: '04',
+    total: '04',
+    tag: 'Desktop',
+    title: 'ProCare',
+    href: '/projects/procare'
+  }
+];
+
+const currentPage = 1;
+const totalPages = 3;
+---
+
+<Layout title="Loyihalar - Bright Future" description="Bright Future Design agentligi loyihalari">
+  <Header />
+
+  <main class="projects-page">
+    <div class="container-bf">
+      <!-- Page Title -->
+      <h1 class="projects-page__title">Loyihalar</h1>
+
+      <!-- Projects List -->
+      <div class="projects-list">
+        {projects.map((project) => (
+          <ProjectCard
+            category={project.category}
+            image={project.image}
+            number={project.number}
+            total={project.total}
+            tag={project.tag}
+            title={project.title}
+            href={project.href}
+          />
+        ))}
+      </div>
+
+      <!-- Pagination -->
+      <nav class="pagination" aria-label="Sahifalar">
+        <button class="pagination__btn pagination__btn--prev" disabled>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+
+        <div class="pagination__numbers">
+          {[1, 2, 3].map((page) => (
+            <a
+              href={page === 1 ? '/projects' : `/projects?page=${page}`}
+              class:list={['pagination__num', page === currentPage && 'pagination__num--active']}
+            >
+              {page}
+            </a>
+          ))}
+        </div>
+
+        <a href="/projects?page=2" class="pagination__btn pagination__btn--next">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </nav>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  .projects-page {
+    padding-top: 2rem;
+    padding-bottom: 4rem;
+    min-height: 100vh;
+  }
+
+  .projects-page__title {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-weight: 500;
+    text-align: center;
+    margin-bottom: 3rem;
+    color: var(--color-black, #000);
+  }
+
+  /* Projects List */
+  .projects-list {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+  }
+
+  @media (min-width: 1024px) {
+    .projects-list {
+      gap: 4rem;
+    }
+  }
+
+  /* Pagination */
+  .pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(140, 140, 140, 0.2);
+  }
+
+  .pagination__btn {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 1px solid rgba(140, 140, 140, 0.3);
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-black, #000);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+  }
+
+  .pagination__btn:hover:not([disabled]) {
+    border-color: var(--color-primary, #13499F);
+    color: var(--color-primary, #13499F);
+  }
+
+  .pagination__btn[disabled] {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+
+  .pagination__numbers {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .pagination__num {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 1px solid transparent;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Urbanist', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--color-gray, #8C8C8C);
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .pagination__num:hover {
+    color: var(--color-black, #000);
+  }
+
+  .pagination__num--active {
+    background: var(--color-primary, #13499F);
+    color: white;
+  }
+
+  .pagination__num--active:hover {
+    color: white;
+  }
+</style>
+
+<script>
+  // Trigger animations on project cards
+  const projectCards = document.querySelectorAll('.project-card');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, {
+    root: null,
+    rootMargin: '0px 0px -50px 0px',
+    threshold: 0.1
+  });
+
+  projectCards.forEach(card => {
+    observer.observe(card);
+  });
+</script>

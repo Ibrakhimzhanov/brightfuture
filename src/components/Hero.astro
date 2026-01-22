@@ -1,0 +1,143 @@
+---
+import slide1 from '../assets/slide-1.png';
+import slide2 from '../assets/Slide-2.jpg';
+import slide3 from '../assets/Slide-3.jpg';
+
+const slides = [
+  { src: slide1.src, alt: 'Bright Future - Slide 1' },
+  { src: slide2.src, alt: 'Bright Future - Slide 2' },
+  { src: slide3.src, alt: 'Bright Future - Slide 3' },
+];
+---
+
+<section class="relative w-full overflow-hidden bg-bf-primary" aria-label="Hero banner">
+
+  <!-- Slides Container -->
+  <div class="slides-container relative w-full h-full">
+    {slides.map((slide, idx) => (
+      <div
+        class:list={[
+          'slide w-full h-full transition-opacity duration-1000',
+          idx === 0 ? 'relative opacity-100' : 'absolute inset-0 opacity-0'
+        ]}
+        data-slide-index={idx}
+      >
+        <img
+          src={slide.src}
+          alt={slide.alt}
+          class="w-full h-full object-cover object-center block"
+          loading={idx === 0 ? "eager" : "lazy"}
+        />
+      </div>
+    ))}
+  </div>
+
+  <!-- Navigation Controls -->
+  <div class="absolute right-8 bottom-36 inline-flex items-center gap-4 z-10">
+      <button class="carousel-btn" aria-label="Keyingi slayd" data-direction="next">
+      <svg width="16" height="17" viewBox="0 0 16 17" fill="none">
+        <path d="M5.80946 2.58706C4.17653 3.51475 2.89332 4.24375 1.97914 4.91154C1.05867 5.58392 0.377946 6.2867 0.134114 7.21321C-0.0447044 7.89269 -0.0447044 8.60743 0.134114 9.28691C0.377946 10.2134 1.05867 10.9162 1.97914 11.5886C2.89331 12.2564 4.1765 12.9854 5.80941 13.913L5.80942 13.913C7.38681 14.8092 8.71697 15.5649 9.72678 15.9944C10.7447 16.4274 11.6727 16.6468 12.5746 16.3912C13.2375 16.2034 13.8406 15.8469 14.3264 15.3567C14.9858 14.6914 15.2505 13.772 15.3757 12.6654C15.5 11.567 15.5 10.129 15.5 8.30017V8.30016V8.19997V8.19996C15.5 6.37108 15.5 4.93315 15.3757 3.8347C15.2505 2.72816 14.9858 1.80867 14.3264 1.14341C13.8406 0.653232 13.2375 0.296724 12.5746 0.108895C11.6727 -0.146689 10.7447 0.0727526 9.72678 0.505712C8.71697 0.93522 7.38684 1.6909 5.80946 2.58706Z" fill="white"/>
+      </svg>
+    </button>
+    <button class="carousel-btn" aria-label="Oldingi slayd" data-direction="prev">
+      <svg width="16" height="17" viewBox="0 0 16 17" fill="none">
+        <path d="M10.1905 14.413C11.8235 13.4853 13.1067 12.7563 14.0209 12.0885C14.9413 11.4161 15.6221 10.7133 15.8659 9.78679C16.0447 9.10731 16.0447 8.39257 15.8659 7.71309C15.6221 6.7866 14.9413 6.08382 14.0209 5.41144C13.1067 4.74365 11.8235 4.01465 10.1906 3.08696L10.1906 3.08695C8.61319 2.19079 7.28303 1.43511 6.27322 1.00561C5.25534 0.572651 4.32727 0.353209 3.42542 0.608793C2.76253 0.796622 2.15938 1.15313 1.67358 1.64331C1.01423 2.30857 0.749543 3.22806 0.624288 4.33461C0.5 5.43306 0.5 6.87099 0.5 8.69984V8.69986V8.80003V8.80005C0.5 10.6289 0.5 12.0669 0.624288 13.1653C0.749543 14.2718 1.01423 15.1913 1.67358 15.8566C2.15938 16.3468 2.76253 16.7033 3.42542 16.8911C4.32727 17.1467 5.25534 16.9272 6.27322 16.4943C7.28303 16.0648 8.61316 15.3091 10.1905 14.413Z" fill="white"/>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Slide Indicator -->
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+    {slides.map((_, idx) => (
+      <span class:list={['slide-dot', idx === 0 && 'active']} data-slide={idx}></span>
+    ))}
+  </div>
+
+</section>
+
+<style>
+  .carousel-btn {
+    position: relative;
+    display: flex;
+    width: 52px;
+    height: 52px;
+    padding: 14px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px;
+    background: rgba(0, 0, 0, 0.20);
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .carousel-btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 50px;
+    padding: 1px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.08) 50%, rgba(0, 0, 0, 0.15) 100%);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+
+  .carousel-btn:hover {
+    background: rgba(0, 0, 0, 0.30);
+  }
+
+  .carousel-btn:active {
+    transform: scale(0.95);
+  }
+
+  .slide-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.4);
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  .slide-dot:hover { background: rgba(255, 255, 255, 0.6); }
+  .slide-dot.active { width: 24px; border-radius: 4px; background: white; }
+</style>
+
+<script>
+  const prevBtn = document.querySelector('[data-direction="prev"]');
+  const nextBtn = document.querySelector('[data-direction="next"]');
+  const dots = document.querySelectorAll('.slide-dot');
+  const slidesEl = document.querySelectorAll('.slide');
+  let currentSlide = 0;
+  const totalSlides = slidesEl.length;
+  let autoPlay;
+
+  function updateSlides() {
+    slidesEl.forEach((s, i) => {
+      if (i === currentSlide) {
+        s.classList.remove('opacity-0', 'absolute', 'inset-0');
+        s.classList.add('opacity-100', 'relative');
+      } else {
+        s.classList.remove('opacity-100', 'relative');
+        s.classList.add('opacity-0', 'absolute', 'inset-0');
+      }
+    });
+    dots.forEach((d, i) => d.classList.toggle('active', i === currentSlide));
+  }
+
+  function goToSlide(i) {
+    currentSlide = (i + totalSlides) % totalSlides;
+    updateSlides();
+  }
+
+  function startAuto() { autoPlay = setInterval(() => goToSlide(currentSlide + 1), 5000); }
+  function resetAuto() { clearInterval(autoPlay); startAuto(); }
+
+  prevBtn?.addEventListener('click', () => { goToSlide(currentSlide - 1); resetAuto(); });
+  nextBtn?.addEventListener('click', () => { goToSlide(currentSlide + 1); resetAuto(); });
+  dots.forEach((d, i) => d.addEventListener('click', () => { goToSlide(i); resetAuto(); }));
+
+  startAuto();
+</script>

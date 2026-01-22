@@ -1,0 +1,218 @@
+---
+interface Service {
+  title: string;
+  tags: string[];
+}
+
+const services: Service[] = [
+  { 
+    title: 'MOTION GRAPHICS',
+    tags: ['Video Montaj', 'Animatsiya', 'Visual Effects', 'Logo Animation', 'Intro/Outro', 'Reklama']
+  },
+  { 
+    title: 'WEB & DIGITAL PRODUCT',
+    tags: ['Landing Page', 'E-commerce', 'Dashboard', 'Mobile App', 'Web App', 'CRM']
+  },
+  { 
+    title: 'AI TOOLS',
+    tags: ['Musiqa Yozish', 'Video Klip Yaratish', 'Kod Yozish', 'Rasm Yaratish va Tahrirlash', 'Cover', 'SMM']
+  },
+  { 
+    title: 'BRAND IDENTITY',
+    tags: ['Logotip', 'Brend Kitob', 'Vizit Kartochka', 'Brend Strategiya', 'Packaging', 'Firmenniy Stil']
+  },
+  { 
+    title: '3D Design',
+    tags: ['3D Modeling', 'Product Render', 'Interior Vizualizatsiya', 'Exterior Design', 'Animation 3D', 'AR/VR']
+  },
+];
+---
+
+<section class="services py-16 lg:py-24 bg-white overflow-hidden" id="services">
+  <div class="container-bf">
+    
+    <!-- Section Title -->
+    <h2 class="text-h3 font-medium text-bf-black text-center mb-12 animate-on-scroll">
+      Bizning xizmatlar
+    </h2>
+    
+  </div>
+  
+  <!-- Services List (Full Width) -->
+  <div class="services__list">
+    
+    {services.map((service, index) => (
+      <div 
+        class="services__item"
+        style={`animation-delay: ${index * 100}ms`}
+      >
+        <!-- Default: Title -->
+        <div class="services__title-wrap">
+          <h3 class="services__title">{service.title}</h3>
+        </div>
+        
+        <!-- Hover: Full Width Marquee -->
+        <div class="services__marquee-wrapper">
+          <div class="services__marquee">
+            {[...Array(4)].map(() => (
+              <div class="services__marquee-content">
+                {service.tags.map((tag) => (
+                  <span class="services__marquee-tag">{tag}</span>
+                ))}
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    ))}
+    
+  </div>
+</section>
+
+<style>
+  .services__list {
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Service Item */
+  .services__item {
+    position: relative;
+    width: 100%;
+    cursor: pointer;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: serviceFadeIn 0.6s ease-out forwards;
+    animation-play-state: paused;
+  }
+
+  .services__item.visible {
+    animation-play-state: running;
+  }
+
+  @keyframes serviceFadeIn {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Title (Default State) */
+  .services__title-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100px;
+    padding: 1.5rem 0;
+    background: white;
+    transition: all 0.4s ease;
+  }
+
+  @media (min-width: 768px) {
+    .services__title-wrap {
+      min-height: 120px;
+    }
+  }
+
+  .services__title {
+    font-size: clamp(2.5rem, 8vw, 6.25rem);
+    font-weight: 600;
+    line-height: 1.2;
+    text-align: center;
+    color: var(--color-black, #000);
+    transition: all 0.4s ease;
+  }
+
+  /* Marquee (Hover State) - Full Width */
+  .services__marquee-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    background: var(--color-black, #000);
+    display: flex;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+    overflow: hidden;
+  }
+
+  .services__marquee {
+    display: flex;
+    width: max-content;
+    animation: marquee 20s linear infinite;
+  }
+
+  .services__marquee-content {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+    padding-right: 4rem;
+  }
+
+  .services__marquee-tag {
+    font-size: clamp(1.5rem, 4vw, 2.625rem);
+    font-weight: 600;
+    color: white;
+    white-space: nowrap;
+  }
+
+  @keyframes marquee {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-25%);
+    }
+  }
+
+  /* HOVER STATE */
+  .services__item:hover .services__title-wrap {
+    opacity: 0;
+  }
+
+  .services__item:hover .services__marquee-wrapper {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .services__title-wrap {
+      min-height: 80px;
+      padding: 1rem 0;
+    }
+
+    .services__marquee-content {
+      gap: 2rem;
+      padding-right: 2rem;
+    }
+  }
+</style>
+
+<script>
+  // Intersection Observer for service items
+  const servicesObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+  document.querySelectorAll('.services__item').forEach(item => {
+    servicesObserver.observe(item);
+  });
+
+  // Also observe the title
+  const servicesTitle = document.querySelector('.services h2');
+  if (servicesTitle) {
+    servicesTitle.classList.add('animate-on-scroll');
+    servicesObserver.observe(servicesTitle);
+  }
+</script>

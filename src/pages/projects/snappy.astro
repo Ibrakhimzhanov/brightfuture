@@ -1,0 +1,1412 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+// Images
+const laptopImg = '/images/snappy/laptop.png';
+const djImg = '/images/snappy/dj.png';
+const phoneAppImg = '/images/snappy/phone-app.png';
+const playLineImg = '/images/snappy/play-line.png';
+const pixorLogoImg = '/images/snappy/pixorlogo.png';
+const playFioletImg = '/images/snappy/playfiolet.png';
+const bidjekImg = '/images/snappy/bidjek.png';
+const visitcardImg = '/images/snappy/visitcard.png';
+const playandpeopleImg = '/images/snappy/playandpeople.png';
+const dashImg = '/images/snappy/dash.png';
+const leftdashImg = '/images/snappy/leftdash.png';
+const motivImg = '/images/snappy/motiv.png';
+---
+
+<Layout title="Snappy - Bright Future">
+  <Header />
+
+  <main class="snappy-project">
+
+    <!-- ==================== SECTION 1: HERO ==================== -->
+    <section class="hero">
+      <div class="hero__container">
+        <!-- Title -->
+        <h1 class="hero__title">Snappy</h1>
+
+        <!-- Info grid -->
+        <div class="hero__info">
+          <!-- Left: Meta -->
+          <div class="hero__meta">
+            <p class="hero__company">Bright Future</p>
+            <p class="hero__year">2024</p>
+          </div>
+
+          <!-- Right: About -->
+          <div class="hero__about">
+            <h2 class="hero__about-title">Loyiha haqida</h2>
+            <p class="hero__about-text">
+              Snappy jonli efirni toza, intuitiv va samaradorlikka asoslangan dizayn bilan qayta tasavvur qiladi. Biz har bir o'zaro ta'sirni — sozlashdan tortib, ishtirok etishgacha — soddalashtirdik, bu foydalanuvchilarga bir necha soniya ichida jonli efirga chiqish yoki translyatsiyalarni tomosha qilish imkonini berdi.
+            </p>
+            <span class="hero__tag">Website</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== SECTION 2: LAPTOP ==================== -->
+    <section class="laptop-section">
+      <img src={laptopImg} alt="Snappy Dashboard" class="laptop-section__img" />
+    </section>
+
+    <!-- ==================== SECTION 3: ABOUT ==================== -->
+    <section class="about-section">
+      <div class="about-section__container">
+        <!-- Section label -->
+        <div class="section-label">
+          <span class="section-label__num">/01</span>
+          <span class="section-label__text">Haqida</span>
+        </div>
+
+        <!-- Title -->
+        <h2 class="about-section__title">
+          Ijodkorlarga imkoniyat <span class="highlight">Yaratadigan</span> va ularning <br/> sa'y-harakatlarini mukofotlaydigan zamonaviy <br/> video striming platformasi
+        </h2>
+
+        <!-- Description -->
+        <p class="about-section__desc">
+          Ilova ijodkorlarga o'z kontentlaridan osongina<br>
+          pul ishlash imkonini beradi
+        </p>
+      </div>
+    </section>
+
+    <!-- ==================== SECTION 4: IMAGES ==================== -->
+    <section class="images-section">
+      <div class="images-section__container">
+        <!-- Left: DJ Image with play icon -->
+        <div class="images-section__left">
+          <img src={djImg} alt="DJ creating content" class="images-section__dj" />
+        </div>
+        <!-- Right: Phone App -->
+        <div class="images-section__right">
+          <img src={phoneAppImg} alt="Snappy mobile app" class="images-section__phone" />
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== SECTION 5: BRANDING ==================== -->
+    <section class="branding-section">
+      <div class="branding-section__container">
+        <!-- Section label -->
+        <div class="section-label">
+          <span class="section-label__num">/02</span>
+          <span class="section-label__text">Brending</span>
+        </div>
+
+        <!-- Logo image -->
+        <div class="branding-section__image">
+          <img src={playLineImg} alt="Snappy Logo" class="branding-section__img" />
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== SECTION 6: PIXOR ==================== -->
+    <section class="pixor-section">
+      <div class="pixor-section__container">
+        <div class="pixor-section__content">
+          <img src={pixorLogoImg} alt="Pixor Agency Logo" class="pixor-section__logo" />
+          <p class="pixor-section__text">
+            Logotip harakat va ijodkorlikni ifodalovchi universal "O'yin" ramzidan ilhomlangan. Uning suyuq, uchburchak shakli jonli kontentning dinamik oqimini ifodalaydi, binafsha gradient esa hissiyot, innovatsiya va raqamli impulsni ifodalaydi.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== SECTION 7: SHOWCASE ==================== -->
+    <section class="showcase-section">
+      <div class="showcase-section__container">
+        <div class="showcase-section__left">
+          <img src={playFioletImg} alt="Snappy Play Icon" class="showcase-section__play" />
+        </div>
+        <div class="showcase-section__right">
+          <img src={bidjekImg} alt="Snappy Badge" class="showcase-section__badge" />
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== SECTION 8: VISITCARD ==================== -->
+    <section class="visitcard-section">
+      <div class="visitcard-section__container">
+        <h2 class="visitcard-section__title">
+          Ushbu o'ziga xoslik o'ynoqilik va professionallikni birlashtirib, ham <span class="highlight">strimerlar,</span> ham tomoshabinlar uchun jozibador.
+        </h2>
+        <div class="visitcard-section__image">
+          <img src={visitcardImg} alt="Snappy Visit Card" class="visitcard-section__img" />
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== SECTION 9: PLAYANDPEOPLE ==================== -->
+    <section class="playandpeople-section">
+      <img src={playandpeopleImg} alt="Snappy Community" class="playandpeople-section__img" />
+    </section>
+
+    <!-- ==================== SECTION 10: USER RESEARCH ==================== -->
+    <section class="userresearch-section">
+      <div class="userresearch-section__container">
+        <!-- Section label -->
+        <div class="section-label">
+          <span class="section-label__num">/03</span>
+          <span class="section-label__text">Foydalanuvchi Tadqiqoti</span>
+        </div>
+
+        <!-- Cards container -->
+        <div class="userresearch-cards">
+          <!-- Left: User types image -->
+          <div class="userresearch-cards__left">
+            <img src={leftdashImg} alt="User types" class="userresearch-cards__img" />
+          </div>
+
+          <!-- Right: Subscription image (250px lower) -->
+          <div class="userresearch-cards__right">
+            <img src={dashImg} alt="Subscription chart" class="userresearch-cards__img" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== SECTION 11: MOTIVATION ==================== -->
+    <section class="motiv-section">
+      <div class="motiv-section__container">
+        <img src={motivImg} alt="Motivation" class="motiv-section__img" />
+      </div>
+    </section>
+
+
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  /* ========================================
+     SNAPPY PROJECT PAGE - PIXEL PERFECT
+     ======================================== */
+
+  .snappy-project {
+    --purple-primary: #BE0ADC;
+    --purple-secondary: #7B2CF5;
+    --yellow: #FFD700;
+    --green: #4ADE80;
+    --gray-light: #F6F6F6;
+    --gray: #8C8C8C;
+    --beige: #F2F1EC;
+  }
+
+  /* ==================== SECTION 1: HERO ==================== */
+  .hero {
+    background: white;
+    padding: 60px 0 80px;
+  }
+
+  .hero__container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 60px;
+  }
+
+  .hero__title {
+    font-family: 'Urbanist', sans-serif;
+    font-size: clamp(64px, 10vw, 100px);
+    font-weight: 500;
+    font-style: normal;
+    color: #000;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    text-align: center;
+    margin-bottom: 60px;
+  }
+
+  .hero__info {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 120px;
+    width: 100%;
+  }
+
+  .hero__meta {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 220px;
+  }
+
+  .hero__company,
+  .hero__year {
+    font-family: 'Urbanist', sans-serif;
+    font-size: 32px;
+    font-weight: 600;
+    color: #000;
+  }
+
+  .hero__about {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .hero__about-title {
+    font-family: 'Urbanist', sans-serif;
+    font-size: 32px;
+    font-weight: 600;
+    color: #000;
+    margin-bottom: 8px;
+  }
+
+  .hero__about-text {
+    font-family: 'Urbanist', sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+    color: var(--gray);
+    line-height: 140%;
+    max-width: 560px;
+  }
+
+  .hero__tag {
+    display: inline-flex;
+    align-items: center;
+    padding: 14px 28px;
+    background: var(--beige);
+    border-radius: 50px;
+    font-family: 'Urbanist', sans-serif;
+    font-size: 24px;
+    font-weight: 500;
+    color: #000;
+    width: fit-content;
+    margin-top: 8px;
+    transition: background 0.2s ease, transform 0.2s ease;
+     transform: translateY(10px);
+  }
+
+  .hero__tag:hover {
+    background: #E8E7E2;
+    transform: translateY(-1px);
+  }
+
+  /* ==================== SECTION 2: LAPTOP ==================== */
+  .laptop-section {
+    width: 100%;
+  }
+
+  .laptop-section__img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* ==================== SECTION 3: ABOUT ==================== */
+  .about-section {
+    background: white;
+    padding: 100px 0;
+  }
+
+  .about-section__container {
+    max-width: 1500px;
+    margin: 0 auto;
+    padding: 0 70px;
+  }
+
+  .section-label {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    margin-bottom: 40px;
+  }
+
+  .section-label__num {
+    font-family: 'Helvetica Neue', 'Arial', sans-serif;
+    font-size: 32px;
+    font-weight: 400;
+    color: var(--gray);
+  }
+
+  .section-label__text {
+    font-family: 'Helvetica Neue', 'Arial', sans-serif;
+    font-size: 32px;
+    font-weight: 500;
+    color: var(--gray);
+  }
+
+  .about-section__title {
+    font-family: 'Helvetica Neue', 'Arial', sans-serif;
+    font-size: 60px;
+    font-weight: 500;
+    font-style: normal;
+    color: #000;
+    line-height: 120%;
+    letter-spacing: -1.2px;
+    text-align: right;
+  }
+
+  @media (max-width: 1200px) {
+    .about-section__title {
+      font-size: 48px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .about-section__title {
+      font-size: 32px;
+      text-align: left;
+    }
+  }
+
+  .highlight {
+    color: #CC03ED;
+  }
+
+  .highlight--light {
+    color: #D970E8;
+  }
+
+  .about-section__desc {
+    font-family: 'Urbanist', sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    color: var(--gray);
+    line-height: 130%;
+    letter-spacing: -0.2px;
+  }
+
+  /* ==================== SECTION 4: IMAGES ==================== */
+  .images-section {
+    padding: 80px 0;
+  }
+
+  .images-section__container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+  }
+
+  .images-section__left {
+    position: relative;
+  }
+
+  .images-section__dj {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 24px;
+  }
+
+  .images-section__play {
+    position: absolute;
+    bottom: 24px;
+    left: 24px;
+    width: 80px;
+    height: 80px;
+  }
+
+  .images-section__play svg {
+    width: 100%;
+    height: 100%;
+    filter: drop-shadow(0 4px 12px rgba(190, 10, 220, 0.4));
+  }
+
+  .images-section__right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .images-section__phone {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  @media (max-width: 1400px) {
+    .images-section__left,
+    .images-section__right {
+      width: calc(50% - 20px);
+      height: auto;
+      aspect-ratio: 651 / 766;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    .images-section__container {
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    .images-section__left,
+    .images-section__right {
+      width: 100%;
+      max-width: 500px;
+      height: auto;
+      aspect-ratio: 651 / 766;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .images-section {
+      padding: 40px 0;
+    }
+
+    .images-section__container {
+      padding: 0 24px;
+    }
+
+    .images-section__play {
+      width: 60px;
+      height: 60px;
+      bottom: 16px;
+      left: 16px;
+    }
+  }
+
+  /* ==================== SECTION 5: BRANDING ==================== */
+  .branding-section {
+    background: white;
+    padding: 100px 0;
+  }
+
+  .branding-section__container {
+    max-width: 1500px;
+    margin: 0 auto;
+    padding: 0 70px;
+  }
+
+  .branding-section__image {
+    display: flex;
+    justify-content: end;
+  }
+
+  .branding-section__img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* ==================== SECTION 6: PIXOR ==================== */
+  .pixor-section {
+    background: white;
+    padding: 80px 0;
+  }
+
+  .pixor-section__container {
+    max-width: 1500px;
+    margin: 0 auto;
+    padding: 0 70px;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .pixor-section__content {
+    max-width: 600px;
+  }
+
+  .pixor-section__logo {
+    display: block;
+    margin-bottom: 24px;
+    height: 80px;
+    width: auto;
+  }
+
+  .pixor-section__text {
+    font-family: 'SF Pro Display', 'Urbanist', sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    color: var(--gray);
+    line-height: 1.6;
+    align-self: stretch;
+  }
+
+  @media (max-width: 768px) {
+    .pixor-section__container {
+      justify-content: flex-start;
+    }
+
+    .pixor-section__content {
+      max-width: 100%;
+    }
+  }
+
+  /* ==================== SECTION 7: SHOWCASE ==================== */
+  .showcase-section {
+    padding: 0;
+  }
+
+  .showcase-section__container {
+    max-width: 1500px;
+    margin: 0 auto;
+    padding: 0 70px;
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+    justify-content: center;
+  }
+
+  .showcase-section__left {
+    flex-shrink: 0;
+    padding-top: 160px;
+    padding-bottom: 80px;
+  }
+
+  .showcase-section__right {
+    flex-shrink: 0;
+  }
+
+  .showcase-section__play {
+    max-height: 600px;
+    width: auto;
+    border-radius: 24px;
+  }
+
+  .showcase-section__badge {
+    max-height: 600px;
+    width: auto;
+    display: block;
+  }
+
+  @media (max-width: 1024px) {
+    .showcase-section__container {
+      flex-direction: column;
+    }
+
+    .showcase-section__play,
+    .showcase-section__badge {
+      max-height: 400px;
+      max-width: 100%;
+    }
+  }
+
+  /* ==================== SECTION 8: VISITCARD ==================== */
+  .visitcard-section {
+    background: white;
+    padding: 100px 0;
+  }
+
+  .visitcard-section__container {
+    max-width: 1500px;
+    margin: 0 auto;
+    padding: 0 70px;
+  }
+
+  .visitcard-section__title {
+    font-family: 'SF Pro Display', 'Helvetica Neue', 'Arial', sans-serif;
+    font-size: 70px;
+    font-weight: 500;
+    font-style: normal;
+    color: #000;
+    line-height: 120%;
+    letter-spacing: -1.4px;
+    max-width: 1348px;
+    margin-bottom: 60px;
+  }
+
+  .visitcard-section__image {
+    display: flex;
+    justify-content: start;
+  }
+
+  .visitcard-section__img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  @media (max-width: 1200px) {
+    .visitcard-section__title {
+      font-size: 48px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .visitcard-section__title {
+      font-size: 32px;
+    }
+  }
+
+  /* ==================== SECTION 9: PLAYANDPEOPLE ==================== */
+  .playandpeople-section {
+    background: white;
+    padding: 300px 0;
+    overflow: hidden;
+  }
+
+  .playandpeople-section__img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* ==================== SECTION 10: USER RESEARCH ==================== */
+  .userresearch-section {
+    padding: 0 0 250px 0;
+  }
+
+  .userresearch-section__container {
+    max-width: 1500px;
+    margin: 0 auto;
+    padding: 0 70px;
+  }
+
+  .userresearch-card {
+    display: inline-flex;
+    min-width: 538px;
+    padding: 50px 90px 68px 50px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 65px;
+    border-radius: 58px;
+    border: 1px solid #FAFAFA;
+    background: #F0F0F0;
+    box-sizing: border-box;
+    overflow: visible;
+  }
+
+  .userresearch-card__header {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .userresearch-card__icon {
+    width: 24px;
+    height: 24px;
+    color: #000;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .userresearch-card__title {
+    font-family: 'Helvetica Neue', 'Arial', sans-serif;
+    font-size: 32px;
+    font-weight: 600;
+    color: #000;
+    margin-bottom: 4px;
+  }
+
+  .userresearch-card__subtitle {
+    font-family: 'Helvetica Neue', 'Arial', sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+    opacity: 0.3;
+    color: var(--gray);
+  }
+
+  .userresearch-card__stats {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    width: 100%;
+  }
+
+  .stat-row {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .stat-row__label {
+    font-family: 'Urbanist', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: #000;
+  }
+
+  .stat-row__bar {
+    position: relative;
+    height: 8px;
+    background: #E8E8E8;
+    border-radius: 100px;
+    width: 100%;
+  }
+
+  .stat-row__fill {
+    position: relative;
+    height: 100%;
+    border-radius: 100px;
+    transition: width 1s ease;
+  }
+
+  .stat-row__fill--green {
+    background: #22C55E;
+  }
+
+  .stat-row__fill--purple {
+    background: #CC03ED;
+  }
+
+  .stat-row__circle {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translate(50%, -50%);
+    width: 70px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-radius: 50%;
+  }
+
+  .stat-row__circle-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .stat-row__circle-text {
+    position: relative;
+    z-index: 2;
+    font-family: 'Urbanist', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: #000;
+  }
+
+  /* Cards container */
+  .userresearch-cards {
+    display: flex;
+    gap: 60px;
+    align-items: flex-start;
+  }
+
+  .userresearch-cards__left {
+    flex-shrink: 0;
+  }
+
+  .userresearch-cards__right {
+    flex-shrink: 0;
+    margin-top: 650px;
+  }
+
+  .userresearch-cards__img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  @media (max-width: 1024px) {
+    .userresearch-cards {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .userresearch-cards__right {
+      margin-top: 60px;
+    }
+  }
+
+  /* ==================== SECTION 11: MOTIVATION ==================== */
+  .motiv-section {
+    background: white;
+    padding: 100px 0;
+  }
+
+  .motiv-section__container {
+    max-width: 1500px;
+    margin: 0 auto;
+    padding: 0 70px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .motiv-section__img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* ==================== SECTION 12: IDENTITY ==================== */
+  .identity-section {
+    background: linear-gradient(135deg, var(--purple-primary) 0%, var(--purple-secondary) 100%);
+    padding: 100px 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .identity-section__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 70px;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .identity-section__logo svg {
+    width: 200px;
+    height: 200px;
+  }
+
+  .identity-section__content {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .identity-section__title {
+    font-family: 'Urbanist', sans-serif;
+    font-size: 36px;
+    font-weight: 600;
+    color: white;
+    line-height: 1.4;
+    max-width: 550px;
+  }
+
+  .identity-section__cards {
+    display: flex;
+    gap: 20px;
+    position: relative;
+  }
+
+  .business-card {
+    width: 280px;
+    height: 160px;
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+  }
+
+  .business-card--front {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transform: rotate(-5deg);
+    z-index: 2;
+  }
+
+  .business-card--back {
+    position: absolute;
+    left: 40px;
+    top: -10px;
+    transform: rotate(5deg);
+    z-index: 1;
+    background: #f5f5f5;
+  }
+
+  .business-card__logo svg {
+    width: 40px;
+    height: 40px;
+  }
+
+  .business-card__text {
+    font-family: 'Urbanist', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: #000;
+  }
+
+  .identity-section__pencil {
+    position: absolute;
+    right: 100px;
+    top: 50%;
+    transform: translateY(-50%) rotate(45deg);
+  }
+
+  .pencil {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .pencil__body {
+    width: 12px;
+    height: 200px;
+    background: linear-gradient(90deg, #DC2626 0%, #EF4444 50%, #DC2626 100%);
+    border-radius: 2px 2px 0 0;
+  }
+
+  .pencil__tip {
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 20px solid #FCD34D;
+  }
+
+  .identity-section__avatars {
+    position: absolute;
+    bottom: 40px;
+    left: 70px;
+    right: 70px;
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+  }
+
+  .avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    animation: avatarPop 0.5s ease calc(var(--delay, 0s)) both;
+  }
+
+  .avatar__img {
+    width: 100%;
+    height: 100%;
+  }
+
+  .avatar--more {
+    background: rgba(255, 255, 255, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Urbanist', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: white;
+  }
+
+  @keyframes avatarPop {
+    from {
+      transform: scale(0);
+      opacity: 0;
+    }
+    to {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+  /* ==================== SECTION 6: USER RESEARCH ==================== */
+  .research-section {
+    background: var(--beige);
+    padding: 100px 0;
+  }
+
+  .research-section__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 70px;
+  }
+
+  .section-label--dark .section-label__num,
+  .section-label--dark .section-label__text {
+    color: #000;
+  }
+
+  .research-section__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 300px;
+    gap: 40px;
+    align-items: start;
+  }
+
+  .stat-block {
+    background: white;
+    border-radius: 20px;
+    padding: 24px;
+    margin-bottom: 24px;
+  }
+
+  .stat-block__header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 24px;
+  }
+
+  .stat-block__icon {
+    width: 20px;
+    height: 20px;
+    color: var(--gray);
+  }
+
+  .stat-block__label {
+    font-family: 'Urbanist', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: #000;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .stat-block__bars {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .stat-bar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .stat-bar__label {
+    font-family: 'Urbanist', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--gray);
+    min-width: 80px;
+  }
+
+  .stat-bar__track {
+    flex: 1;
+    height: 8px;
+    background: #E8E8E8;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .stat-bar__fill {
+    height: 100%;
+    width: var(--width, 50%);
+    border-radius: 4px;
+    transition: width 1s ease;
+  }
+
+  .stat-bar__fill--gray {
+    background: #CCCCCC;
+  }
+
+  .stat-bar__fill--purple {
+    background: var(--purple-primary);
+  }
+
+  .stat-bar__value {
+    font-family: 'Urbanist', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: #000;
+    min-width: 40px;
+  }
+
+  .stat-block__list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+
+  .pref-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .pref-item__bullet {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+  }
+
+  .pref-item__bullet--purple { background: var(--purple-primary); }
+  .pref-item__bullet--yellow { background: var(--yellow); }
+  .pref-item__bullet--green { background: var(--green); }
+
+  .pref-item__text {
+    font-family: 'Urbanist', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: #000;
+  }
+
+  .donut-chart {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    margin: 0 auto;
+  }
+
+  .donut-chart svg {
+    width: 100%;
+    height: 100%;
+    transform: rotate(-90deg);
+  }
+
+  .donut-segment {
+    transition: stroke-dasharray 1s ease;
+  }
+
+  .donut-chart__center {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .donut-chart__value {
+    font-family: 'Urbanist', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: #000;
+  }
+
+  .motivation-chart {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .pie-chart {
+    width: 160px;
+    height: 160px;
+    margin: 0 auto;
+  }
+
+  .pie-chart svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  .motivation-legend {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .legend-color {
+    width: 12px;
+    height: 12px;
+    border-radius: 3px;
+    flex-shrink: 0;
+  }
+
+  .legend-value {
+    font-family: 'Urbanist', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: #000;
+  }
+
+  .legend-label {
+    font-family: 'Urbanist', sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--gray);
+  }
+
+  .research-section__mobile {
+    display: flex;
+    justify-content: center;
+  }
+
+  .mobile-mockup {
+    perspective: 1000px;
+  }
+
+  .mobile-mockup__frame {
+    width: 240px;
+    height: 500px;
+    background: #1a1a1a;
+    border-radius: 40px;
+    padding: 12px;
+    box-shadow: 0 40px 80px rgba(0, 0, 0, 0.2);
+    transform: rotateY(-5deg);
+  }
+
+  .mobile-mockup__notch {
+    width: 100px;
+    height: 24px;
+    background: #1a1a1a;
+    border-radius: 0 0 16px 16px;
+    margin: 0 auto -12px;
+    position: relative;
+    z-index: 10;
+  }
+
+  .mobile-mockup__screen {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--purple-primary) 0%, var(--purple-secondary) 100%);
+    border-radius: 28px;
+    overflow: hidden;
+  }
+
+  .mobile-mockup__screen img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .mobile-mockup__ui {
+    width: 100%;
+    height: 100%;
+    padding: 20px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .mobile-mockup__header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: white;
+    font-family: 'Urbanist', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+  }
+
+  .mobile-mockup__logo {
+    width: 36px;
+    height: 36px;
+  }
+
+  .mobile-mockup__content {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    flex: 1;
+  }
+
+  .mobile-mockup__card {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 12px;
+    height: 100px;
+    backdrop-filter: blur(10px);
+  }
+
+  .mobile-mockup__card:nth-child(1) {
+    height: 140px;
+  }
+
+  .mobile-mockup__card:nth-child(2) {
+    height: 80px;
+  }
+
+  /* ==================== RESPONSIVE ==================== */
+  @media (max-width: 1024px) {
+    .hero__container,
+    .about-section__container,
+    .branding-section__container,
+    .identity-section__container,
+    .research-section__container {
+      padding: 0 40px;
+    }
+
+    .hero__container {
+      padding: 0 40px;
+    }
+
+    .hero__info {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+
+    .hero__meta {
+      flex-direction: row;
+      gap: 60px;
+      min-height: auto;
+    }
+
+    .hero__title {
+      margin-bottom: 40px;
+    }
+
+    .branding-section__logo-area,
+    .branding-section__showcase {
+      grid-template-columns: 1fr;
+    }
+
+    .identity-section__container {
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
+
+    .identity-section__logo {
+      margin: 0 auto;
+    }
+
+    .identity-section__cards {
+      justify-content: center;
+    }
+
+    .identity-section__pencil {
+      display: none;
+    }
+
+    .research-section__grid {
+      grid-template-columns: 1fr;
+    }
+
+    .research-section__mobile {
+      order: -1;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .hero {
+      padding: 30px 0 50px;
+    }
+
+    .hero__container {
+      padding: 0 24px;
+    }
+
+    .hero__title {
+      margin-bottom: 32px;
+    }
+
+    .hero__info {
+      gap: 32px;
+    }
+
+    .hero__meta {
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .hero__company,
+    .hero__year {
+      font-size: 18px;
+    }
+
+    .hero__about-title {
+      font-size: 18px;
+    }
+
+
+    .about-section,
+    .branding-section,
+    .identity-section,
+    .research-section {
+      padding: 60px 0;
+    }
+
+    .identity-section__title {
+      font-size: 28px;
+    }
+
+    .identity-section__avatars {
+      flex-wrap: wrap;
+      justify-content: center;
+      position: relative;
+      bottom: auto;
+      left: auto;
+      right: auto;
+      margin-top: 40px;
+    }
+
+    .mobile-mockup__frame {
+      width: 200px;
+      height: 420px;
+    }
+
+    .motivation-legend {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

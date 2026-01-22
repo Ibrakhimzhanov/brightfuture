@@ -1,0 +1,226 @@
+---
+import anjanLogo from '../assets/clients/anjan.png';
+import procareLogo from '../assets/clients/procare.png';
+import saidovLogo from '../assets/clients/saidov.png';
+import spaceLogo from '../assets/clients/space.png';
+import alBukhariLogo from '../assets/clients/Al Bukhari.svg';
+import bilalTravelLogo from '../assets/clients/Bilal travel.svg';
+import dcardLogo from '../assets/clients/Dcard.svg';
+import doctorALogo from '../assets/clients/Doctor A.svg';
+import essicBeeLogo from '../assets/clients/Essic bee.svg';
+import famirLogo from '../assets/clients/Famir.svg';
+import labsearchLogo from '../assets/clients/Labsearch.svg';
+import oxxoLogo from '../assets/clients/oxxo.svg';
+import patriotLogo from '../assets/clients/Patriot.svg';
+import safeplogsLogo from '../assets/clients/Safeplogs.svg';
+import tikonchaLogo from '../assets/clients/Tikoncha.svg';
+import yoshlarVentureLogo from '../assets/clients/Yoshlar venture.svg';
+
+interface Client {
+  name: string;
+  logo: ImageMetadata;
+}
+
+const clients: Client[] = [
+  { name: 'Anjan', logo: anjanLogo },
+  { name: 'ProCare', logo: procareLogo },
+  { name: 'Saidov', logo: saidovLogo },
+  { name: 'Space', logo: spaceLogo },
+  { name: 'Al Bukhari', logo: alBukhariLogo },
+  { name: 'Bilal Travel', logo: bilalTravelLogo },
+  { name: 'Dcard', logo: dcardLogo },
+  { name: 'Doctor A', logo: doctorALogo },
+  { name: 'Essic Bee', logo: essicBeeLogo },
+  { name: 'Famir', logo: famirLogo },
+  { name: 'Labsearch', logo: labsearchLogo },
+  { name: 'Oxxo', logo: oxxoLogo },
+  { name: 'Patriot', logo: patriotLogo },
+  { name: 'Safeplogs', logo: safeplogsLogo },
+  { name: 'Tikoncha', logo: tikonchaLogo },
+  { name: 'Yoshlar Venture', logo: yoshlarVentureLogo },
+];
+---
+
+<section class="clients py-16 lg:py-24 bg-white overflow-hidden" id="clients">
+  <div class="container-bf">
+
+    <!-- Section Header -->
+    <div class="clients__header">
+
+      <!-- Left: Title -->
+      <div class="clients__title-wrap">
+        <h2 class="clients__title animate-on-scroll">
+          BIZ MIJOZLARIMIZNING
+          MUVOFAQLIKLARI BILAN
+          FAXRLANAMIZ
+        </h2>
+      </div>
+
+      <!-- Right: Description (aligned to bottom of title) -->
+      <div class="clients__desc-wrap">
+        <p class="clients__desc animate-on-scroll">
+          Biz mijozlarimizni muvaffaqiyatimizning eng muhim qismi deb bilamiz. Ularning yutuqlari bizni ilhomlantiradi va doimiy takomillashtirishga undaydi. Biz ularning muvaffaqiyat sari sayohatining bir qismi ekanligimizdan faxrlanamiz.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- Clients Marquee (Full Width) -->
+  <div class="clients__marquee-wrapper">
+    <div class="clients__marquee">
+      {/* Repeat clients 4 times for seamless loop */}
+      {[...Array(4)].map(() => (
+        <div class="clients__marquee-content">
+          {clients.map((client) => (
+            <div class="clients__card">
+              <img src={client.logo.src} alt={client.name} class="clients__logo-img" />
+            </div>
+          ))}
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Header Grid */
+  .clients__header {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin-bottom: 3rem;
+  }
+
+  @media (min-width: 1024px) {
+    .clients__header {
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      margin-bottom: 4rem;
+    }
+  }
+
+  .clients__title {
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    font-weight: 500;
+    line-height: 1.3;
+    color: var(--color-black, #000);
+    text-transform: uppercase;
+  }
+
+  .clients__desc-wrap {
+    padding-top: 200px;
+  }
+
+  .clients__desc {
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.6;
+    color: var(--color-gray, #8C8C8C);
+    max-width: 543px;
+  }
+
+  @media (min-width: 1024px) {
+    .clients__desc {
+      font-size: 1.125rem;
+    }
+  }
+
+  /* Scroll animations */
+  .animate-on-scroll {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+
+  .animate-on-scroll.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .delay-100 { transition-delay: 100ms; }
+
+  /* ========== CLIENTS MARQUEE ========== */
+  .clients__marquee-wrapper {
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .clients__marquee {
+    display: flex;
+    width: max-content;
+    animation: clientsMarquee 40s linear infinite;
+  }
+
+  .clients__marquee:hover {
+    animation-play-state: paused;
+  }
+
+  .clients__marquee-content {
+    display: flex;
+    gap: 1rem;
+    padding-right: 1rem;
+  }
+
+  @keyframes clientsMarquee {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-25%);
+    }
+  }
+
+  /* Client Card */
+  .clients__card {
+    flex-shrink: 0;
+    width: 300px;
+    height: 200px;
+    background: var(--color-gray-light, #F6F6F6);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  @media (min-width: 640px) {
+    .clients__card {
+      width: 350px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .clients__card {
+      width: 404px;
+      height: 244px;
+    }
+  }
+
+  .clients__card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+  }
+
+  .clients__logo-img {
+    max-width: 70%;
+    max-height: 60%;
+    object-fit: contain;
+  }
+</style>
+
+<script>
+  // Intersection Observer for scroll animations
+  const clientsObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+  document.querySelectorAll('.clients .animate-on-scroll').forEach(el => {
+    clientsObserver.observe(el);
+  });
+</script>

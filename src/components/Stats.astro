@@ -1,0 +1,51 @@
+---
+import StatCard from './ui/StatCard.astro';
+
+interface Stat {
+  number: string;
+  description: string;
+}
+
+const stats: Stat[] = [
+  {
+    number: '10+',
+    description: 'Sanoat yetakchilari va Fortune 500 kompaniyalari uchun mahsulot dizayni loyihalari.'
+  },
+  {
+    number: '100+',
+    description: "Startaplardan tortib ko'p millatli kompaniyalargacha bo'lgan logotip va brending loyihalari."
+  },
+  {
+    number: '10+',
+    description: "Logotip va brending loyihalari bilan xizmat ko'rsatiladigan mamlakatlar."
+  },
+  {
+    number: '6+',
+    description: "Mahsulot va brend dizayneri sifatida dizayn sohasida ko'p yillik tajriba."
+  }
+];
+---
+
+<section class="py-12 lg:py-16 bg-white" id="stats">
+  <div class="container-bf">
+    
+    <!-- Stats Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      {stats.map((stat, index) => (
+        <StatCard 
+          number={stat.number} 
+          description={stat.description}
+          delay={index * 100}
+        />
+      ))}
+    </div>
+    
+  </div>
+</section>
+
+<style>
+  /* Trigger animations when section is in view */
+  section {
+    overflow: hidden;
+  }
+</style>
