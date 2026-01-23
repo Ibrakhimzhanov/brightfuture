@@ -51,7 +51,7 @@ const pathWithoutLang = pathname.replace(/^\/(uz|ru|en)/, '') || '/';
     </a>
 
     <!-- Navigation - Desktop -->
-    <nav class="hidden lg:flex items-center gap-8" aria-label="Main navigation">
+    <nav class="hidden xl:flex items-center gap-6" aria-label="Main navigation">
       {navItems.map((item) => (
         <a
           href={item.href}
@@ -69,7 +69,7 @@ const pathWithoutLang = pathname.replace(/^\/(uz|ru|en)/, '') || '/';
     </nav>
 
     <!-- Right Section -->
-    <div class="hidden md:flex items-center gap-6">
+    <div class="hidden xl:flex items-center gap-4">
 
       <!-- Language Switcher -->
       <div class="lang-switcher relative">
@@ -106,7 +106,7 @@ const pathWithoutLang = pathname.replace(/^\/(uz|ru|en)/, '') || '/';
     </div>
 
     <!-- Mobile Menu Button -->
-    <button class="lg:hidden flex flex-col gap-1.5 p-2 -mr-2" aria-label="Open menu" id="mobile-menu-btn">
+    <button class="xl:hidden flex flex-col gap-1.5 p-2 -mr-2" aria-label="Open menu" id="mobile-menu-btn">
       <span class="w-6 h-0.5 bg-bf-black transition-all duration-300 origin-center" id="line1"></span>
       <span class="w-6 h-0.5 bg-bf-black transition-all duration-300" id="line2"></span>
       <span class="w-4 h-0.5 bg-bf-black transition-all duration-300 origin-center" id="line3"></span>
@@ -115,7 +115,7 @@ const pathWithoutLang = pathname.replace(/^\/(uz|ru|en)/, '') || '/';
 </header>
 
 <!-- Mobile Menu - Outside header for proper z-index stacking -->
-<div id="mobile-menu" class="lg:hidden fixed inset-0 bg-white z-[150] transform translate-x-full transition-transform duration-300 ease-out overflow-y-auto" style="padding-top: 3.625rem;">
+<div id="mobile-menu" class="xl:hidden fixed inset-0 bg-white z-[150] transform translate-x-full transition-transform duration-300 ease-out overflow-y-auto" style="padding-top: 3.625rem;">
   <nav class="container-bf py-8 flex flex-col gap-6">
     {navItems.map((item, index) => (
       <a
