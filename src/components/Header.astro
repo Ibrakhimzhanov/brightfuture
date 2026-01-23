@@ -112,50 +112,50 @@ const pathWithoutLang = pathname.replace(/^\/(uz|ru|en)/, '') || '/';
       <span class="w-4 h-0.5 bg-bf-black transition-all duration-300 origin-center" id="line3"></span>
     </button>
   </div>
+</header>
 
-  <!-- Mobile Menu -->
-  <div id="mobile-menu" class="lg:hidden fixed left-0 right-0 bottom-0 bg-white z-[199] transform translate-x-full transition-transform duration-300 ease-out overflow-y-auto" style="top: 3.625rem;">
-    <nav class="container-bf py-8 flex flex-col gap-6">
-      {navItems.map((item, index) => (
+<!-- Mobile Menu - Outside header for proper z-index stacking -->
+<div id="mobile-menu" class="lg:hidden fixed inset-0 bg-white z-[150] transform translate-x-full transition-transform duration-300 ease-out overflow-y-auto" style="padding-top: 3.625rem;">
+  <nav class="container-bf py-8 flex flex-col gap-6">
+    {navItems.map((item, index) => (
+      <a
+        href={item.href}
+        class:list={[
+          'text-2xl font-medium transition-all duration-300 opacity-0 translate-y-4',
+          item.active ? 'text-bf-primary' : 'text-bf-black',
+        ]}
+        style={`animation-delay: ${index * 50}ms`}
+        data-mobile-link
+      >
+        {item.label}
+      </a>
+    ))}
+
+    <!-- Mobile Language Switcher -->
+    <div class="pt-6 border-t border-bf-gray-light mt-4 flex gap-4">
+      {languages.map((language) => (
         <a
-          href={item.href}
+          href={language.code === 'uz' ? pathWithoutLang : `/${language.code}${pathWithoutLang}`}
           class:list={[
-            'text-2xl font-medium transition-all duration-300 opacity-0 translate-y-4',
-            item.active ? 'text-bf-primary' : 'text-bf-black',
+            'flex items-center gap-2 px-3 py-2 rounded-lg transition-colors',
+            language.code === lang ? 'bg-bf-primary text-white' : 'bg-bf-beige text-bf-black'
           ]}
-          style={`animation-delay: ${index * 50}ms`}
-          data-mobile-link
         >
-          {item.label}
+          <span set:html={language.flag} />
+          <span class="text-sm font-medium">{language.name}</span>
         </a>
       ))}
+    </div>
 
-      <!-- Mobile Language Switcher -->
-      <div class="pt-6 border-t border-bf-gray-light mt-4 flex gap-4">
-        {languages.map((language) => (
-          <a
-            href={language.code === 'uz' ? pathWithoutLang : `/${language.code}${pathWithoutLang}`}
-            class:list={[
-              'flex items-center gap-2 px-3 py-2 rounded-lg transition-colors',
-              language.code === lang ? 'bg-bf-primary text-white' : 'bg-bf-beige text-bf-black'
-            ]}
-          >
-            <span set:html={language.flag} />
-            <span class="text-sm font-medium">{language.name}</span>
-          </a>
-        ))}
-      </div>
+    <div class="pt-4">
+      <a href={`tel:${phone.replace(/\s/g, '')}`} class="text-lg font-medium text-bf-gray hover:text-bf-primary transition-colors">
+        {phone}
+      </a>
+    </div>
 
-      <div class="pt-4">
-        <a href={`tel:${phone.replace(/\s/g, '')}`} class="text-lg font-medium text-bf-gray hover:text-bf-primary transition-colors">
-          {phone}
-        </a>
-      </div>
-
-      <Button text={t('nav.getConsultation')} href={`${langPrefix}/#contact`} size="lg" class="mt-4 w-fit" />
-    </nav>
-  </div>
-</header>
+    <Button text={t('nav.getConsultation')} href={`${langPrefix}/#contact`} size="lg" class="mt-4 w-fit" />
+  </nav>
+</div>
 
 <!-- Spacer for fixed header -->
 <div class="h-header"></div>
