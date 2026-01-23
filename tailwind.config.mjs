@@ -39,6 +39,7 @@ export default {
         '18': '4.5rem',
         '21': '5.25rem',
         'container': '4.375rem', // 70px
+        'header': '3.625rem', // 58px - for top-header
       },
       maxWidth: {
         'container': '90rem', // 1440px
