@@ -24,7 +24,6 @@ interface Project {
   tag: string;
   title: string;
   href: string;
-  fullWidth?: boolean;
 }
 
 const projects: Project[] = [
@@ -35,8 +34,7 @@ const projects: Project[] = [
     total: '04',
     tag: 'Website',
     title: 'Snappy',
-    href: `${langPrefix}/projects/snappy`,
-    fullWidth: true
+    href: `${langPrefix}/projects/snappy`
   },
   {
     category: '3D Loyihalash',
@@ -45,8 +43,7 @@ const projects: Project[] = [
     total: '04',
     tag: '3D Dizayn',
     title: 'Rizq',
-    href: `${langPrefix}/projects/rizq`,
-    fullWidth: true
+    href: `${langPrefix}/projects/rizq`
   },
   {
     category: 'Branding',
@@ -55,8 +52,7 @@ const projects: Project[] = [
     total: '04',
     tag: 'Branding',
     title: 'Oleo',
-    href: `${langPrefix}/projects/mimi`,
-    fullWidth: true
+    href: `${langPrefix}/projects/mimi`
   },
   {
     category: 'Desktop ilova\nMobile ilova',
@@ -65,8 +61,7 @@ const projects: Project[] = [
     total: '04',
     tag: 'Desktop',
     title: 'ProCare',
-    href: `${langPrefix}/projects/procare`,
-    fullWidth: true
+    href: `${langPrefix}/projects/procare`
   }
 ];
 ---
@@ -113,7 +108,6 @@ const projects: Project[] = [
           tag={project.tag}
           title={project.title}
           href={project.href}
-          fullWidth={project.fullWidth}
         />
       ))}
     </div>
