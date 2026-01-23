@@ -114,7 +114,7 @@ const pathWithoutLang = pathname.replace(/^\/(uz|ru|en)/, '') || '/';
   </div>
 
   <!-- Mobile Menu -->
-  <div id="mobile-menu" class="lg:hidden fixed inset-0 top-header bg-white z-[199] transform translate-x-full transition-transform duration-300 ease-out">
+  <div id="mobile-menu" class="lg:hidden fixed left-0 right-0 bottom-0 bg-white z-[199] transform translate-x-full transition-transform duration-300 ease-out overflow-y-auto" style="top: 3.625rem;">
     <nav class="container-bf py-8 flex flex-col gap-6">
       {navItems.map((item, index) => (
         <a
