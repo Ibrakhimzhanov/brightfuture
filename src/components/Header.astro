@@ -16,14 +16,15 @@ interface NavItem {
   active?: boolean;
 }
 
-const langPrefix = lang === 'uz' ? '' : `/${lang}`;
+const base = import.meta.env.BASE_URL;
+const langPrefix = lang === 'uz' ? base : `${base}${lang}/`;
 
 const navItems: NavItem[] = [
-  { label: t('nav.home'), href: `${langPrefix}/`, active: true },
-  { label: t('nav.projects'), href: `${langPrefix}/#projects` },
-  { label: t('nav.clients'), href: `${langPrefix}/#clients` },
-  { label: t('nav.services'), href: `${langPrefix}/#services` },
-  { label: t('nav.contact'), href: `${langPrefix}/#contact` },
+  { label: t('nav.home'), href: langPrefix, active: true },
+  { label: t('nav.projects'), href: `${langPrefix}#projects` },
+  { label: t('nav.clients'), href: `${langPrefix}#clients` },
+  { label: t('nav.services'), href: `${langPrefix}#services` },
+  { label: t('nav.contact'), href: `${langPrefix}#contact` },
 ];
 
 const phone = '+998 55-203-71-71';
@@ -39,15 +40,15 @@ const currentLang = languages.find(l => l.code === lang) || languages[0];
 
 // Get current path without language prefix for switching
 const pathname = Astro.url.pathname;
-const pathWithoutLang = pathname.replace(/^\/(uz|ru|en)/, '') || '/';
+const pathWithoutLang = pathname.replace(new RegExp(`^${base}(uz|ru|en)?/?`), '') || '';
 ---
 
 <header class="fixed top-0 left-0 right-0 z-[200] bg-white/95 backdrop-blur-sm border-b border-transparent hover:border-bf-gray-light transition-colors duration-300">
   <div class="container-bf h-header flex items-center justify-between">
 
     <!-- Logo -->
-    <a href={`${langPrefix}/`} class="flex-shrink-0 group" aria-label="Bright Future - {t('nav.home')}">
-      <img src="/logo.svg" alt="Bright Future" class="h-8 w-auto transition-transform duration-300 group-hover:scale-105" />
+    <a href={langPrefix} class="flex-shrink-0 group" aria-label="Bright Future - {t('nav.home')}">
+      <img src={`${import.meta.env.BASE_URL}logo.svg`} alt="Bright Future" class="h-8 w-auto transition-transform duration-300 group-hover:scale-105" />
     </a>
 
     <!-- Navigation - Desktop -->
@@ -85,7 +86,7 @@ const pathWithoutLang = pathname.replace(/^\/(uz|ru|en)/, '') || '/';
         <div class="lang-dropdown" id="lang-dropdown">
           {languages.map((language) => (
             <a
-              href={language.code === 'uz' ? pathWithoutLang : `/${language.code}${pathWithoutLang}`}
+              href={language.code === 'uz' ? `${base}${pathWithoutLang}` : `${base}${language.code}/${pathWithoutLang}`}
               class:list={['lang-option', language.code === lang && 'active']}
               data-lang={language.code}
             >
@@ -102,7 +103,7 @@ const pathWithoutLang = pathname.replace(/^\/(uz|ru|en)/, '') || '/';
       </a>
 
       <!-- CTA Button -->
-      <Button text={t('nav.getConsultation')} href={`${langPrefix}/#contact`} size="md" />
+      <Button text={t('nav.getConsultation')} href={`${langPrefix}#contact`} size="md" />
     </div>
 
     <!-- Mobile Menu Button -->
@@ -135,7 +136,7 @@ const pathWithoutLang = pathname.replace(/^\/(uz|ru|en)/, '') || '/';
     <div class="pt-6 border-t border-bf-gray-light mt-4 flex gap-4">
       {languages.map((language) => (
         <a
-          href={language.code === 'uz' ? pathWithoutLang : `/${language.code}${pathWithoutLang}`}
+          href={language.code === 'uz' ? `${base}${pathWithoutLang}` : `${base}${language.code}/${pathWithoutLang}`}
           class:list={[
             'flex items-center gap-2 px-3 py-2 rounded-lg transition-colors',
             language.code === lang ? 'bg-bf-primary text-white' : 'bg-bf-beige text-bf-black'
@@ -153,7 +154,7 @@ const pathWithoutLang = pathname.replace(/^\/(uz|ru|en)/, '') || '/';
       </a>
     </div>
 
-    <Button text={t('nav.getConsultation')} href={`${langPrefix}/#contact`} size="md" class="mt-4" />
+    <Button text={t('nav.getConsultation')} href={`${langPrefix}#contact`} size="md" class="mt-4" />
   </nav>
 </div>
 
