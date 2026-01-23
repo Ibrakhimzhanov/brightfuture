@@ -9,6 +9,7 @@ interface Props {
   title: string;
   href?: string;
   modalImage?: string; // Путь к фото для модального окна (если указан - открывается модалка вместо перехода)
+  fullWidth?: boolean; // Картинка на всю ширину без боковых элементов
 }
 
 const {
@@ -20,21 +21,24 @@ const {
   tag,
   title,
   href = '#',
-  modalImage
+  modalImage,
+  fullWidth = false
 } = Astro.props;
 
 const isModal = !!modalImage;
 ---
 
-<article class="project-card">
-  <div class="project-card__inner">
-    
+<article class:list={["project-card", fullWidth && "project-card--full-width"]}>
+  <div class:list={["project-card__inner", fullWidth && "project-card__inner--full"]}>
+
     <!-- Left: Category Label -->
-    <div class="project-card__category">
-      <span class="text-xl font-semibold text-bf-dark leading-tight">
-        {category}
-      </span>
-    </div>
+    {!fullWidth && (
+      <div class="project-card__category">
+        <span class="text-xl font-semibold text-bf-dark leading-tight">
+          {category}
+        </span>
+      </div>
+    )}
     
     <!-- Center: Image -->
     <div class="project-card__image-wrap">
@@ -83,20 +87,22 @@ const isModal = !!modalImage;
     </div>
     
     <!-- Right: Meta Info -->
-    <div class="project-card__meta">
-      <!-- Counter -->
-      <div class="project-card__counter">
-        <span class="text-h4 font-medium text-bf-black">{number}</span>
-        <span class="text-h4 font-medium text-bf-gray"> / {total}</span>
+    {!fullWidth && (
+      <div class="project-card__meta">
+        <!-- Counter -->
+        <div class="project-card__counter">
+          <span class="text-h4 font-medium text-bf-black">{number}</span>
+          <span class="text-h4 font-medium text-bf-gray"> / {total}</span>
+        </div>
+
+        <!-- Tag -->
+        <div class="project-card__tag">
+          <span class="bg-bf-beige text-bf-black text-small font-medium px-3.5 py-1 rounded-full">
+            {tag}
+          </span>
+        </div>
       </div>
-      
-      <!-- Tag -->
-      <div class="project-card__tag">
-        <span class="bg-bf-beige text-bf-black text-small font-medium px-3.5 py-1 rounded-full">
-          {tag}
-        </span>
-      </div>
-    </div>
+    )}
     
   </div>
   
@@ -154,6 +160,28 @@ const isModal = !!modalImage;
     .project-card__inner {
       grid-template-columns: 128px 1fr 122px;
       gap: 1.5rem;
+      height: 606px;
+    }
+  }
+
+  /* Full Width Variant */
+  .project-card__inner--full {
+    grid-template-columns: 1fr !important;
+  }
+
+  .project-card--full-width .project-card__image-wrap {
+    max-width: 100%;
+    height: 400px;
+  }
+
+  @media (min-width: 768px) {
+    .project-card--full-width .project-card__image-wrap {
+      height: 550px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .project-card--full-width .project-card__image-wrap {
       height: 606px;
     }
   }
