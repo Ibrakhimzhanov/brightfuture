@@ -1,5 +1,14 @@
 ---
 import Button from './ui/Button.astro';
+import { getLangFromUrl, useTranslations, type Lang } from '../i18n';
+
+interface Props {
+  lang?: Lang;
+}
+
+const { lang: propLang } = Astro.props;
+const lang = propLang || getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 
 interface NavItem {
   label: string;
@@ -7,27 +16,42 @@ interface NavItem {
   active?: boolean;
 }
 
+const langPrefix = lang === 'uz' ? '' : `/${lang}`;
+
 const navItems: NavItem[] = [
-  { label: 'Bosh sahifa', href: '/', active: true },
-  { label: 'Loyihalar', href: '/#projects' },
-  { label: 'Mijozlar', href: '/#clients' },
-  { label: 'Xizmatlar', href: '/#services' },
-  { label: 'Kontaktlar', href: '/#contact' },
+  { label: t('nav.home'), href: `${langPrefix}/`, active: true },
+  { label: t('nav.projects'), href: `${langPrefix}/#projects` },
+  { label: t('nav.clients'), href: `${langPrefix}/#clients` },
+  { label: t('nav.services'), href: `${langPrefix}/#services` },
+  { label: t('nav.contact'), href: `${langPrefix}/#contact` },
 ];
 
 const phone = '+998 55-203-71-71';
+
+// Language data for switcher
+const languages = [
+  { code: 'uz', name: t('language.uz'), flag: `<svg width="24" height="16" viewBox="0 0 24 16" fill="none" class="rounded-sm"><rect width="24" height="5.33" fill="#0099B5"/><rect y="5.33" width="24" height="0.67" fill="#CE1126"/><rect y="6" width="24" height="4" fill="white"/><rect y="10" width="24" height="0.67" fill="#CE1126"/><rect y="10.67" width="24" height="5.33" fill="#1EB53A"/><circle cx="5" cy="2.67" r="1.5" fill="white"/><circle cx="5.5" cy="2.67" r="1" fill="#0099B5"/></svg>` },
+  { code: 'ru', name: t('language.ru'), flag: `<svg width="24" height="16" viewBox="0 0 24 16" fill="none" class="rounded-sm"><rect width="24" height="5.33" fill="white"/><rect y="5.33" width="24" height="5.33" fill="#0039A6"/><rect y="10.67" width="24" height="5.33" fill="#D52B1E"/></svg>` },
+  { code: 'en', name: t('language.en'), flag: `<svg width="24" height="16" viewBox="0 0 24 16" fill="none" class="rounded-sm"><rect width="24" height="16" fill="#012169"/><path d="M0 0L24 16M24 0L0 16" stroke="white" stroke-width="2.5"/><path d="M0 0L24 16M24 0L0 16" stroke="#C8102E" stroke-width="1.5"/><path d="M12 0V16M0 8H24" stroke="white" stroke-width="4"/><path d="M12 0V16M0 8H24" stroke="#C8102E" stroke-width="2.5"/></svg>` },
+];
+
+const currentLang = languages.find(l => l.code === lang) || languages[0];
+
+// Get current path without language prefix for switching
+const pathname = Astro.url.pathname;
+const pathWithoutLang = pathname.replace(/^\/(uz|ru|en)/, '') || '/';
 ---
 
 <header class="fixed top-0 left-0 right-0 z-[200] bg-white/95 backdrop-blur-sm border-b border-transparent hover:border-bf-gray-light transition-colors duration-300">
   <div class="container-bf h-header flex items-center justify-between">
 
     <!-- Logo -->
-    <a href="/" class="flex-shrink-0 group" aria-label="Bright Future - Bosh sahifa">
+    <a href={`${langPrefix}/`} class="flex-shrink-0 group" aria-label="Bright Future - {t('nav.home')}">
       <img src="/logo.svg" alt="Bright Future" class="h-8 w-auto transition-transform duration-300 group-hover:scale-105" />
     </a>
 
     <!-- Navigation - Desktop -->
-    <nav class="hidden lg:flex items-center gap-8" aria-label="Asosiy navigatsiya">
+    <nav class="hidden lg:flex items-center gap-8" aria-label="Main navigation">
       {navItems.map((item) => (
         <a
           href={item.href}
@@ -50,10 +74,8 @@ const phone = '+998 55-203-71-71';
       <!-- Language Switcher -->
       <div class="lang-switcher relative">
         <button class="lang-btn flex items-center gap-2 cursor-pointer group" id="lang-btn">
-          <span class="lang-flag" id="current-flag">
-            <svg width="24" height="16" viewBox="0 0 24 16" fill="none" class="rounded-sm"><rect width="24" height="5.33" fill="#0099B5"/><rect y="5.33" width="24" height="0.67" fill="#CE1126"/><rect y="6" width="24" height="4" fill="white"/><rect y="10" width="24" height="0.67" fill="#CE1126"/><rect y="10.67" width="24" height="5.33" fill="#1EB53A"/><circle cx="5" cy="2.67" r="1.5" fill="white"/><circle cx="5.5" cy="2.67" r="1" fill="#0099B5"/></svg>
-          </span>
-          <span class="text-nav font-medium text-bf-black group-hover:text-bf-primary transition-colors duration-200" id="current-lang">Uzb</span>
+          <span class="lang-flag" id="current-flag" set:html={currentLang.flag} />
+          <span class="text-nav font-medium text-bf-black group-hover:text-bf-primary transition-colors duration-200" id="current-lang">{currentLang.name}</span>
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none" class="text-bf-gray group-hover:text-bf-primary transition-all duration-200" id="lang-chevron">
             <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
@@ -61,18 +83,16 @@ const phone = '+998 55-203-71-71';
 
         <!-- Dropdown -->
         <div class="lang-dropdown" id="lang-dropdown">
-          <button class="lang-option" data-lang="Uzb">
-            <svg width="24" height="16" viewBox="0 0 24 16" fill="none" class="rounded-sm"><rect width="24" height="5.33" fill="#0099B5"/><rect y="5.33" width="24" height="0.67" fill="#CE1126"/><rect y="6" width="24" height="4" fill="white"/><rect y="10" width="24" height="0.67" fill="#CE1126"/><rect y="10.67" width="24" height="5.33" fill="#1EB53A"/><circle cx="5" cy="2.67" r="1.5" fill="white"/><circle cx="5.5" cy="2.67" r="1" fill="#0099B5"/></svg>
-            <span>Uzb</span>
-          </button>
-          <button class="lang-option" data-lang="Rus">
-            <svg width="24" height="16" viewBox="0 0 24 16" fill="none" class="rounded-sm"><rect width="24" height="5.33" fill="white"/><rect y="5.33" width="24" height="5.33" fill="#0039A6"/><rect y="10.67" width="24" height="5.33" fill="#D52B1E"/></svg>
-            <span>Rus</span>
-          </button>
-          <button class="lang-option" data-lang="Eng">
-            <svg width="24" height="16" viewBox="0 0 24 16" fill="none" class="rounded-sm"><rect width="24" height="16" fill="#012169"/><path d="M0 0L24 16M24 0L0 16" stroke="white" stroke-width="2.5"/><path d="M0 0L24 16M24 0L0 16" stroke="#C8102E" stroke-width="1.5"/><path d="M12 0V16M0 8H24" stroke="white" stroke-width="4"/><path d="M12 0V16M0 8H24" stroke="#C8102E" stroke-width="2.5"/></svg>
-            <span>Eng</span>
-          </button>
+          {languages.map((language) => (
+            <a
+              href={language.code === 'uz' ? pathWithoutLang : `/${language.code}${pathWithoutLang}`}
+              class:list={['lang-option', language.code === lang && 'active']}
+              data-lang={language.code}
+            >
+              <span set:html={language.flag} />
+              <span>{language.name}</span>
+            </a>
+          ))}
         </div>
       </div>
 
@@ -82,11 +102,11 @@ const phone = '+998 55-203-71-71';
       </a>
 
       <!-- CTA Button -->
-      <Button text="Buyurtma" href="/#contact" size="md" />
+      <Button text={t('nav.getConsultation')} href={`${langPrefix}/#contact`} size="md" />
     </div>
 
     <!-- Mobile Menu Button -->
-    <button class="lg:hidden flex flex-col gap-1.5 p-2 -mr-2" aria-label="Menyuni ochish" id="mobile-menu-btn">
+    <button class="lg:hidden flex flex-col gap-1.5 p-2 -mr-2" aria-label="Open menu" id="mobile-menu-btn">
       <span class="w-6 h-0.5 bg-bf-black transition-all duration-300 origin-center" id="line1"></span>
       <span class="w-6 h-0.5 bg-bf-black transition-all duration-300" id="line2"></span>
       <span class="w-4 h-0.5 bg-bf-black transition-all duration-300 origin-center" id="line3"></span>
@@ -110,13 +130,29 @@ const phone = '+998 55-203-71-71';
         </a>
       ))}
 
-      <div class="pt-6 border-t border-bf-gray-light mt-4">
+      <!-- Mobile Language Switcher -->
+      <div class="pt-6 border-t border-bf-gray-light mt-4 flex gap-4">
+        {languages.map((language) => (
+          <a
+            href={language.code === 'uz' ? pathWithoutLang : `/${language.code}${pathWithoutLang}`}
+            class:list={[
+              'flex items-center gap-2 px-3 py-2 rounded-lg transition-colors',
+              language.code === lang ? 'bg-bf-primary text-white' : 'bg-bf-beige text-bf-black'
+            ]}
+          >
+            <span set:html={language.flag} />
+            <span class="text-sm font-medium">{language.name}</span>
+          </a>
+        ))}
+      </div>
+
+      <div class="pt-4">
         <a href={`tel:${phone.replace(/\s/g, '')}`} class="text-lg font-medium text-bf-gray hover:text-bf-primary transition-colors">
           {phone}
         </a>
       </div>
 
-      <Button text="Buyurtma" href="/#contact" size="lg" class="mt-4 w-fit" />
+      <Button text={t('nav.getConsultation')} href={`${langPrefix}/#contact`} size="lg" class="mt-4 w-fit" />
     </nav>
   </div>
 </header>
@@ -168,13 +204,10 @@ const phone = '+998 55-203-71-71';
     });
   });
 
-  // Language Switcher
+  // Language Switcher Dropdown
   const langBtn = document.getElementById('lang-btn');
   const langDropdown = document.getElementById('lang-dropdown');
   const langChevron = document.getElementById('lang-chevron');
-  const currentLang = document.getElementById('current-lang');
-  const currentFlag = document.getElementById('current-flag');
-  const langOptions = document.querySelectorAll('.lang-option');
 
   let langOpen = false;
 
@@ -195,18 +228,6 @@ const phone = '+998 55-203-71-71';
       langDropdown?.classList.remove('open');
       langChevron?.classList.remove('rotate-180');
     }
-  });
-
-  langOptions.forEach(option => {
-    option.addEventListener('click', () => {
-      const lang = option.getAttribute('data-lang');
-      const flagSvg = option.querySelector('svg')?.outerHTML;
-      if (currentLang) currentLang.textContent = lang;
-      if (currentFlag && flagSvg) currentFlag.innerHTML = flagSvg;
-      langOpen = false;
-      langDropdown?.classList.remove('open');
-      langChevron?.classList.remove('rotate-180');
-    });
   });
 </script>
 
@@ -257,11 +278,17 @@ const phone = '+998 55-203-71-71';
     font-size: 0.875rem;
     font-weight: 500;
     color: #000;
+    text-decoration: none;
     transition: background 0.2s ease;
   }
 
   .lang-option:hover {
     background: #f5f5f5;
+  }
+
+  .lang-option.active {
+    background: #f0f7ff;
+    color: var(--color-primary, #13499F);
   }
 
   #lang-chevron {

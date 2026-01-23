@@ -1,0 +1,110 @@
+---
+// ImageModal.astro - Модальное окно для просмотра фото проекта
+---
+
+<div id="image-modal" class="image-modal" aria-hidden="true">
+  <div class="image-modal__backdrop"></div>
+  <div class="image-modal__content">
+    <img class="image-modal__image" src="" alt="" />
+  </div>
+</div>
+
+<style>
+  .image-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    padding: 2rem;
+  }
+
+  .image-modal.is-open {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .image-modal__backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    cursor: pointer;
+  }
+
+  .image-modal__content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: scale(0.95);
+    transition: transform 0.3s ease;
+    pointer-events: none;
+  }
+
+  .image-modal.is-open .image-modal__content {
+    transform: scale(1);
+  }
+
+  .image-modal__image {
+    max-width: 90vw;
+    max-height: 90vh;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    border-radius: 1rem;
+    box-shadow: 0 30px 100px rgba(0, 0, 0, 0.2);
+    pointer-events: auto;
+  }
+</style>
+
+<script>
+  const modal = document.getElementById('image-modal');
+  const modalImage = modal?.querySelector('.image-modal__image') as HTMLImageElement;
+  const backdrop = modal?.querySelector('.image-modal__backdrop');
+
+  function openModal(imageSrc: string, imageAlt: string) {
+    if (!modal || !modalImage) return;
+
+    modalImage.src = imageSrc;
+    modalImage.alt = imageAlt;
+    modal.classList.add('is-open');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    if (!modal) return;
+
+    modal.classList.remove('is-open');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  // Закрытие по клику на backdrop
+  backdrop?.addEventListener('click', closeModal);
+
+  // Закрытие по Escape
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal?.classList.contains('is-open')) {
+      closeModal();
+    }
+  });
+
+  // Обработчик для карточек с модальным окном
+  document.querySelectorAll('[data-modal-image]').forEach((card) => {
+    card.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      const imageSrc = card.getAttribute('data-modal-image') || '';
+      const imageAlt = card.getAttribute('data-modal-alt') || '';
+      openModal(imageSrc, imageAlt);
+    });
+  });
+</script>

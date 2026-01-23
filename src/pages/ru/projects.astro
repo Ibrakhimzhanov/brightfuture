@@ -1,83 +1,85 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import ImageModal from '../components/ui/ImageModal.astro';
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import ImageModal from '../../components/ui/ImageModal.astro';
 
-import snappyImg from '../assets/projects/snappy.png';
-import rizqImg from '../assets/projects/rizq.png';
-import oleoImg from '../assets/projects/oleo.png';
-import procareImg from '../assets/projects/procare.png';
+import snappyImg from '../../assets/projects/snappy.png';
+import rizqImg from '../../assets/projects/rizq.png';
+import oleoImg from '../../assets/projects/oleo.png';
+import procareImg from '../../assets/projects/procare.png';
 
-// Категории фильтров с маппингом на теги проектов
+const lang = 'ru';
+
+// Категории фильтров
 const categories = [
-  { name: 'Barchasi', filter: 'all', active: true },
-  { name: 'Web Dizayn', filter: 'Web Dizayn', active: false },
-  { name: 'Motion Grafika', filter: 'Motion Grafika', active: false },
-  { name: 'Grafik Dizayn', filter: 'Grafik Dizayn', active: false },
-  { name: 'Branding', filter: 'Branding', active: false },
-  { name: '3D Dizayn', filter: '3D Dizayn', active: false },
-  { name: 'App Dizayn', filter: 'App Dizayn', active: false },
-  { name: 'Packaging', filter: 'Packaging', active: false },
+  { name: 'Все', filter: 'all', active: true },
+  { name: 'Веб Дизайн', filter: 'Web Dizayn', active: false },
+  { name: 'Моушн Графика', filter: 'Motion Grafika', active: false },
+  { name: 'Графический Дизайн', filter: 'Grafik Dizayn', active: false },
+  { name: 'Брендинг', filter: 'Branding', active: false },
+  { name: '3D Дизайн', filter: '3D Dizayn', active: false },
+  { name: 'Дизайн Приложений', filter: 'App Dizayn', active: false },
+  { name: 'Упаковка', filter: 'Packaging', active: false },
 ];
 
 // Все проекты
 const allProjects = [
   // Branding
-  { image: '/images/Pokla.png', title: 'Pokla', description: 'Branding loyihasi', tag: 'Branding', modalImage: '/images/Pokla.png' },
-  { image: oleoImg.src, title: 'Oleo', description: 'Branding dizayni', tag: 'Branding', href: '/projects/mimi' },
-  { image: '/images/BF.png', title: 'BF', description: 'Branding loyihasi', tag: 'Branding', modalImage: '/images/BF.png' },
-  { image: '/images/Dcard.png', title: 'Dcard', description: 'Karta dizayni', tag: 'Branding', modalImage: '/images/Dcard.png' },
-  { image: '/images/Tikoncha.png', title: 'Tikoncha', description: 'Branding loyihasi', tag: 'Branding', modalImage: '/images/Tikoncha.png' },
+  { image: '/images/Pokla.png', title: 'Pokla', description: 'Проект брендинга', tag: 'Branding', modalImage: '/images/Pokla.png' },
+  { image: oleoImg.src, title: 'Oleo', description: 'Дизайн бренда', tag: 'Branding', href: '/ru/projects/mimi' },
+  { image: '/images/BF.png', title: 'BF', description: 'Проект брендинга', tag: 'Branding', modalImage: '/images/BF.png' },
+  { image: '/images/Dcard.png', title: 'Dcard', description: 'Дизайн карты', tag: 'Branding', modalImage: '/images/Dcard.png' },
+  { image: '/images/Tikoncha.png', title: 'Tikoncha', description: 'Проект брендинга', tag: 'Branding', modalImage: '/images/Tikoncha.png' },
 
   // Web Dizayn
-  { image: snappyImg.src, title: 'Snappy', description: 'Striming platformasi', tag: 'Web Dizayn', href: '/projects/snappy' },
-  { image: '/images/web/Bright Future.png', title: 'Bright Future', description: 'Veb-sayt dizayni', tag: 'Web Dizayn', modalImage: '/images/web/Bright Future.png' },
-  { image: '/images/web/Davo delivery.png', title: 'Davo Delivery', description: 'Yetkazib berish xizmati', tag: 'Web Dizayn', modalImage: '/images/web/Davo delivery.png' },
-  { image: '/images/web/PirateHub.png', title: 'PirateHub', description: 'Veb-sayt dizayni', tag: 'Web Dizayn', modalImage: '/images/web/PirateHub.png' },
-  { image: '/images/web/Poligraf extra.png', title: 'Poligraf Extra', description: 'Poligrafiya xizmatlari', tag: 'Web Dizayn', modalImage: '/images/web/Poligraf extra.png' },
-  { image: '/images/web/Pro Care.png', title: 'Pro Care', description: 'Tibbiyot veb-sayti', tag: 'Web Dizayn', modalImage: '/images/web/Pro Care.png' },
-  { image: '/images/web/Safe Logs.png', title: 'Safe Logs', description: 'Xavfsizlik tizimi', tag: 'Web Dizayn', modalImage: '/images/web/Safe Logs.png' },
-  { image: '/images/web/TXT Group.png', title: 'TXT Group', description: 'Korporativ veb-sayt', tag: 'Web Dizayn', modalImage: '/images/web/TXT Group.png' },
+  { image: snappyImg.src, title: 'Snappy', description: 'Стриминговая платформа', tag: 'Web Dizayn', href: '/ru/projects/snappy' },
+  { image: '/images/web/Bright Future.png', title: 'Bright Future', description: 'Дизайн веб-сайта', tag: 'Web Dizayn', modalImage: '/images/web/Bright Future.png' },
+  { image: '/images/web/Davo delivery.png', title: 'Davo Delivery', description: 'Служба доставки', tag: 'Web Dizayn', modalImage: '/images/web/Davo delivery.png' },
+  { image: '/images/web/PirateHub.png', title: 'PirateHub', description: 'Дизайн веб-сайта', tag: 'Web Dizayn', modalImage: '/images/web/PirateHub.png' },
+  { image: '/images/web/Poligraf extra.png', title: 'Poligraf Extra', description: 'Полиграфические услуги', tag: 'Web Dizayn', modalImage: '/images/web/Poligraf extra.png' },
+  { image: '/images/web/Pro Care.png', title: 'Pro Care', description: 'Медицинский сайт', tag: 'Web Dizayn', modalImage: '/images/web/Pro Care.png' },
+  { image: '/images/web/Safe Logs.png', title: 'Safe Logs', description: 'Система безопасности', tag: 'Web Dizayn', modalImage: '/images/web/Safe Logs.png' },
+  { image: '/images/web/TXT Group.png', title: 'TXT Group', description: 'Корпоративный сайт', tag: 'Web Dizayn', modalImage: '/images/web/TXT Group.png' },
 
   // App Dizayn
-  { image: procareImg.src, title: 'ProCare', description: 'Tibbiy ilova', tag: 'App Dizayn', href: '/projects/procare' },
+  { image: procareImg.src, title: 'ProCare', description: 'Медицинское приложение', tag: 'App Dizayn', href: '/ru/projects/procare' },
 
   // 3D Dizayn
-  { image: rizqImg.src, title: 'Rizq', description: '3D vizualizatsiya', tag: '3D Dizayn', href: '/projects/rizq' },
+  { image: rizqImg.src, title: 'Rizq', description: '3D визуализация', tag: '3D Dizayn', href: '/ru/projects/rizq' },
 
   // Packaging
-  { image: '/images/Andijon package.png', title: 'Andijon', description: 'Qadoq dizayni', tag: 'Packaging', modalImage: '/images/Andijon package.png' },
+  { image: '/images/Andijon package.png', title: 'Andijon', description: 'Дизайн упаковки', tag: 'Packaging', modalImage: '/images/Andijon package.png' },
 ];
 
-// Верхний ряд (движется вправо) - микс разных категорий
+// Верхний ряд
 const topRowProjects = [
-  allProjects[0],  // Pokla - Branding
-  allProjects[5],  // Snappy - Web Dizayn
-  allProjects[6],  // Bright Future - Web Dizayn
-  allProjects[13], // ProCare - App Dizayn
-  allProjects[7],  // Davo Delivery - Web Dizayn
-  allProjects[2],  // BF - Branding
+  allProjects[0],
+  allProjects[5],
+  allProjects[6],
+  allProjects[13],
+  allProjects[7],
+  allProjects[2],
 ];
 
-// Нижний ряд (движется влево)
+// Нижний ряд
 const bottomRowProjects = [
-  allProjects[14], // Rizq - 3D Dizayn
-  allProjects[8],  // PirateHub - Web Dizayn
-  allProjects[3],  // Dcard - Branding
-  allProjects[9],  // Poligraf Extra - Web Dizayn
-  allProjects[4],  // Tikoncha - Branding
-  allProjects[11], // Safe Logs - Web Dizayn
+  allProjects[14],
+  allProjects[8],
+  allProjects[3],
+  allProjects[9],
+  allProjects[4],
+  allProjects[11],
 ];
 ---
 
-<Layout title="Loyihalar - Bright Future" description="Bright Future Design agentligi loyihalari">
-  <Header />
+<Layout title="Проекты - Bright Future" description="Проекты дизайн агентства Bright Future">
+  <Header lang={lang} />
 
   <main class="projects-page">
     <!-- Header Section -->
     <div class="projects-header">
-      <h1 class="projects-title">Loyihalar</h1>
+      <h1 class="projects-title">Проекты</h1>
 
       <!-- Category Filters -->
       <div class="categories">
@@ -105,11 +107,11 @@ const bottomRowProjects = [
     <!-- Projects Section -->
     <div class="projects-section">
       <!-- Background Title -->
-      <div class="projects-bg-title">Loyihalar</div>
+      <div class="projects-bg-title">Проекты</div>
 
-      <!-- Marquee container (shown when "Barchasi" is selected) -->
+      <!-- Marquee container -->
       <div class="marquee-container" id="marquee-container">
-        <!-- Top Row - moves right -->
+        <!-- Top Row -->
         <div class="marquee">
           <div class="marquee__track marquee__track--right">
             {[...topRowProjects, ...topRowProjects, ...topRowProjects].map((project) => (
@@ -142,7 +144,7 @@ const bottomRowProjects = [
           </div>
         </div>
 
-        <!-- Bottom Row - moves left -->
+        <!-- Bottom Row -->
         <div class="marquee">
           <div class="marquee__track marquee__track--left">
             {[...bottomRowProjects, ...bottomRowProjects, ...bottomRowProjects].map((project) => (
@@ -176,7 +178,7 @@ const bottomRowProjects = [
         </div>
       </div>
 
-      <!-- Grid container (shown when specific category is selected) -->
+      <!-- Grid container -->
       <div class="filtered-grid" id="filtered-grid" style="display: none;">
         {allProjects.map((project) => (
           <div class="project-card project-card--grid" data-category={project.tag}>
@@ -209,12 +211,12 @@ const bottomRowProjects = [
 
       <!-- Empty state -->
       <div class="empty-state" id="empty-state" style="display: none;">
-        <p>Bu kategoriyada loyihalar topilmadi</p>
+        <p>В этой категории проектов не найдено</p>
       </div>
     </div>
   </main>
 
-  <Footer />
+  <Footer lang={lang} />
   <ImageModal />
 </Layout>
 
@@ -224,7 +226,6 @@ const bottomRowProjects = [
     overflow: hidden;
   }
 
-  /* Header Section */
   .projects-header {
     text-align: center;
     padding: 3rem 1.5rem 4rem;
@@ -237,7 +238,6 @@ const bottomRowProjects = [
     margin: 0 0 2rem;
   }
 
-  /* Categories */
   .categories {
     display: flex;
     flex-wrap: wrap;
@@ -274,13 +274,11 @@ const bottomRowProjects = [
     color: white;
   }
 
-  /* Projects Section */
   .projects-section {
     position: relative;
     padding-bottom: 4rem;
   }
 
-  /* Background Title */
   .projects-bg-title {
     position: absolute;
     top: 0;
@@ -295,7 +293,6 @@ const bottomRowProjects = [
     line-height: 0.9;
   }
 
-  /* Marquee */
   .marquee {
     position: relative;
     z-index: 1;
@@ -323,24 +320,15 @@ const bottomRowProjects = [
   }
 
   @keyframes scroll-right {
-    0% {
-      transform: translateX(-33.33%);
-    }
-    100% {
-      transform: translateX(0);
-    }
+    0% { transform: translateX(-33.33%); }
+    100% { transform: translateX(0); }
   }
 
   @keyframes scroll-left {
-    0% {
-      transform: translateX(0);
-    }
-    100% {
-      transform: translateX(-33.33%);
-    }
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-33.33%); }
   }
 
-  /* Project Card */
   .project-card {
     position: relative;
     flex-shrink: 0;
@@ -387,7 +375,6 @@ const bottomRowProjects = [
     }
   }
 
-  /* Info - appears on hover */
   .project-card__info {
     position: absolute;
     bottom: -3.5rem;
@@ -444,7 +431,6 @@ const bottomRowProjects = [
     white-space: nowrap;
   }
 
-  /* Filtered Grid */
   .filtered-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -493,7 +479,6 @@ const bottomRowProjects = [
     display: none;
   }
 
-  /* Empty state */
   .empty-state {
     text-align: center;
     padding: 4rem 2rem;
@@ -503,22 +488,18 @@ const bottomRowProjects = [
 </style>
 
 <script>
-  // Elements
   const marqueeContainer = document.getElementById('marquee-container');
   const filteredGrid = document.getElementById('filtered-grid');
   const emptyState = document.getElementById('empty-state');
   const filterButtons = document.querySelectorAll('.category-btn');
   const gridCards = filteredGrid?.querySelectorAll('.project-card--grid');
 
-  // Filter function
   function filterProjects(filter: string) {
     if (filter === 'all') {
-      // Show marquee, hide grid
       if (marqueeContainer) marqueeContainer.style.display = 'block';
       if (filteredGrid) filteredGrid.style.display = 'none';
       if (emptyState) emptyState.style.display = 'none';
     } else {
-      // Hide marquee, show filtered grid
       if (marqueeContainer) marqueeContainer.style.display = 'none';
       if (filteredGrid) filteredGrid.style.display = 'grid';
 
@@ -534,25 +515,18 @@ const bottomRowProjects = [
         }
       });
 
-      // Show empty state if no projects match
       if (emptyState) {
         emptyState.style.display = visibleCount === 0 ? 'block' : 'none';
       }
     }
   }
 
-  // Category filter buttons
   filterButtons.forEach((btn) => {
     btn.addEventListener('click', () => {
-      // Update active state
       filterButtons.forEach(b => b.classList.remove('category-btn--active'));
       btn.classList.add('category-btn--active');
-
-      // Apply filter
       const filter = btn.getAttribute('data-filter') || 'all';
       filterProjects(filter);
     });
   });
-
-  // Modal functionality (handled in ImageModal.astro)
 </script>

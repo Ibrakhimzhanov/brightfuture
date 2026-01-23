@@ -10,34 +10,37 @@ import Approach from '../components/Approach.astro';
 import Services from '../components/Services.astro';
 import Contact from '../components/Contact.astro';
 import Footer from '../components/Footer.astro';
+
+const lang = 'uz';
 ---
 
-<Layout 
+<Layout
   title="Bright Future - Vizual Identifikatsiya va Innovatsiya Agentligi"
   description="Zamonaviy UX/UI dizayn, brend konsepsiyasi, grafik dizayn va AI asosidagi yechimlarni ishlab chiqamiz. Bright Future Design agentligi."
 >
-  <Header />
+  <Header lang={lang} />
   
   <main>
-    <Hero 
+    <Hero
       imageUrl="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=1440&h=720&fit=crop&q=80"
       imageAlt="Bright Future dizayn portfolio - kreativ loyihalar"
+      lang={lang}
     />
-    
-    <About />
-    
-    <Stats />
-    
-    <Projects />
-    
-    <Clients />
-    
-    <Approach />
-    
-    <Services />
-    
-    <Contact />
+
+    <About lang={lang} />
+
+    <Stats lang={lang} />
+
+    <Projects lang={lang} />
+
+    <Clients lang={lang} />
+
+    <Approach lang={lang} />
+
+    <Services lang={lang} />
+
+    <Contact lang={lang} />
   </main>
-  
-  <Footer />
+
+  <Footer lang={lang} />
 </Layout>

@@ -1,45 +1,36 @@
 ---
 import StatCard from './ui/StatCard.astro';
+import { useTranslations, type Lang } from '../i18n';
 
-interface Stat {
-  number: string;
-  description: string;
+interface Props {
+  lang?: Lang;
 }
 
-const stats: Stat[] = [
-  {
-    number: '10+',
-    description: 'Sanoat yetakchilari va Fortune 500 kompaniyalari uchun mahsulot dizayni loyihalari.'
-  },
-  {
-    number: '100+',
-    description: "Startaplardan tortib ko'p millatli kompaniyalargacha bo'lgan logotip va brending loyihalari."
-  },
-  {
-    number: '10+',
-    description: "Logotip va brending loyihalari bilan xizmat ko'rsatiladigan mamlakatlar."
-  },
-  {
-    number: '6+',
-    description: "Mahsulot va brend dizayneri sifatida dizayn sohasida ko'p yillik tajriba."
-  }
+const { lang = 'uz' } = Astro.props;
+const t = useTranslations(lang);
+
+const stats = [
+  { number: t('stats.stat1.number'), description: t('stats.stat1.description') },
+  { number: t('stats.stat2.number'), description: t('stats.stat2.description') },
+  { number: t('stats.stat3.number'), description: t('stats.stat3.description') },
+  { number: t('stats.stat4.number'), description: t('stats.stat4.description') },
 ];
 ---
 
 <section class="py-12 lg:py-16 bg-white" id="stats">
   <div class="container-bf">
-    
+
     <!-- Stats Grid -->
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
       {stats.map((stat, index) => (
-        <StatCard 
-          number={stat.number} 
+        <StatCard
+          number={stat.number}
           description={stat.description}
           delay={index * 100}
         />
       ))}
     </div>
-    
+
   </div>
 </section>
 

@@ -1,0 +1,98 @@
+{
+  "nav": {
+    "home": "Bosh sahifa",
+    "projects": "Loyihalar",
+    "clients": "Mijozlar",
+    "services": "Xizmatlar",
+    "contact": "Kontaktlar",
+    "getConsultation": "Konsultatsiya olish"
+  },
+  "hero": {
+    "prev": "Oldingi slayd",
+    "next": "Keyingi slayd"
+  },
+  "about": {
+    "title1": "VIZUAL IDENTIFIKATSIYA",
+    "title2": "VA INNOVATSIYA AGENTLIGI",
+    "description": "Bright Future Design – zamonaviy UX/UI dizayn, brend konsepsiyasi, grafik dizayn va AI asosidagi yechimlarni ishlab chiqamiz. Brendingizni strategik yondashuv bilan shakllantirib, vizual kommunikatsiyani mustahkamlaymiz va brend qiymatini oshiramiz."
+  },
+  "stats": {
+    "stat1": {
+      "number": "10+",
+      "description": "Sanoat yetakchilari va Fortune 500 kompaniyalari uchun mahsulot dizayni loyihalari."
+    },
+    "stat2": {
+      "number": "100+",
+      "description": "Startaplardan tortib ko'p millatli kompaniyalargacha bo'lgan logotip va brending loyihalari."
+    },
+    "stat3": {
+      "number": "10+",
+      "description": "Logotip va brending loyihalari bilan xizmat ko'rsatiladigan mamlakatlar."
+    },
+    "stat4": {
+      "number": "6+",
+      "description": "Mahsulot va brend dizayneri sifatida dizayn sohasida ko'p yillik tajriba."
+    }
+  },
+  "projects": {
+    "title": "Loyihalar",
+    "viewAll": "Barchasini ko'rish",
+    "categories": {
+      "all": "Barchasi",
+      "webDesign": "Web Dizayn",
+      "motionGraphics": "Motion Grafika",
+      "graphicDesign": "Grafik Dizayn",
+      "branding": "Branding",
+      "3dDesign": "3D Dizayn",
+      "appDesign": "App Dizayn",
+      "packaging": "Packaging"
+    },
+    "emptyState": "Bu kategoriyada loyihalar topilmadi"
+  },
+  "clients": {
+    "title": "BIZ MIJOZLARIMIZNING MUVOFAQLIKLARI BILAN FAXRLANAMIZ",
+    "description": "Biz mijozlarimizni muvaffaqiyatimizning eng muhim qismi deb bilamiz. Ularning yutuqlari bizni ilhomlantiradi va doimiy takomillashtirishga undaydi. Biz ularning muvaffaqiyat sari sayohatining bir qismi ekanligimizdan faxrlanamiz."
+  },
+  "services": {
+    "title": "Bizning xizmatlar"
+  },
+  "projectsSection": {
+    "desc1": "Bizning ishimiz puxta tahlil, ijodiy",
+    "desc2": "fikrlash va mukammallikka intilish mahsulidir.",
+    "title": "Loyihalar",
+    "viewAll": "Barcha loyihalar"
+  },
+  "approach": {
+    "title": "Biz yangi imkoniyatlarni ochadigan innovatsion dizaynlarni yaratish uchun texnologiya va san'atni birlashtiramiz",
+    "description": "Bizning egalarimiz dizayn jarayonida faol ishtirok etadilar, bu esa ishtiyoqli va natijaga yo'naltirilgan tajribani ta'minlaydi. Bizning fidoyi mijozlarga xizmat ko'rsatishimiz bilan biz ishlarni sodda va samarali qilamiz."
+  },
+  "contact": {
+    "title": "Bizga hamma narsani aytib bering",
+    "interested": "Men qiziqaman...",
+    "name": "Ismingiz",
+    "phone": "Telefon raqamingiz",
+    "message": "Loyihangiz haqida aytib bering",
+    "send": "Yuborish",
+    "services": {
+      "uxui": "UX/UI dizayni",
+      "branding": "Brending",
+      "motion": "Motion dizayn",
+      "illustration": "Illustratsiya",
+      "3d": "3D Dizayn",
+      "app": "Ilovani noldan boshlab yaratish",
+      "website": "Saytni noldan boshlab yaratish"
+    }
+  },
+  "footer": {
+    "description": "Bright Future - zamonaviy dizayn agentligi",
+    "navigation": "Navigatsiya",
+    "contacts": "Kontaktlar",
+    "social": "Ijtimoiy tarmoqlar",
+    "rights": "Barcha huquqlar himoyalangan"
+  },
+  "language": {
+    "uz": "O'zb",
+    "ru": "Rus",
+    "en": "Eng"
+  }
+}

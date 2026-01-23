@@ -1,5 +1,12 @@
 ---
-// Approach/Innovation section
+import { useTranslations, type Lang } from '../i18n';
+
+interface Props {
+  lang?: Lang;
+}
+
+const { lang = 'uz' } = Astro.props;
+const t = useTranslations(lang);
 ---
 
 <section class="approach py-16 lg:py-24 bg-white" id="approach">
@@ -10,18 +17,14 @@
       <!-- Left: Title -->
       <div class="approach__title-wrap">
         <h2 class="approach__title animate-on-scroll">
-          Biz yangi imkoniyatlarni
-          ochadigan innovatsion
-          dizaynlarni yaratish uchun
-          texnologiya va san'atni
-          birlashtiramiz
+          {t('approach.title')}
         </h2>
       </div>
 
       <!-- Right: Description (aligned bottom) -->
       <div class="approach__desc-wrap">
         <p class="approach__desc animate-on-scroll">
-          Bizning egalarimiz dizayn jarayonida faol ishtirok etadilar, bu esa ishtiyoqli va natijaga yo'naltirilgan tajribani ta'minlaydi. Bizning fidoyi mijozlarga xizmat ko'rsatishimiz bilan biz ishlarni sodda va samarali qilamiz.
+          {t('approach.description')}
         </p>
       </div>
 

@@ -1,9 +1,18 @@
 ---
-// Footer section
+import { useTranslations, type Lang } from '../i18n';
+
+interface Props {
+  lang?: Lang;
+}
+
+const { lang = 'uz' } = Astro.props;
+const t = useTranslations(lang);
+
+const langPrefix = lang === 'uz' ? '' : `/${lang}`;
 
 const menuLinks = [
-  { name: 'Xizmatlar', href: '#services' },
-  { name: 'Portfolio', href: '#projects' },
+  { name: t('nav.services'), href: `${langPrefix}/#services` },
+  { name: t('nav.projects'), href: `${langPrefix}/#projects` },
 ];
 
 const socialLinks = [
@@ -21,7 +30,7 @@ const socialLinks = [
 
       <!-- Logo -->
       <div class="footer__logo">
-        <a href="#" class="footer__logo-link" aria-label="Bright Future - Bosh sahifa">
+        <a href={`${langPrefix}/`} class="footer__logo-link" aria-label="Bright Future - {t('nav.home')}">
           <img
             src="/logo.svg"
             alt="Bright Future"
@@ -35,7 +44,7 @@ const socialLinks = [
 
         <!-- Menu -->
         <div class="footer__col">
-          <h4 class="footer__col-title">Menyu</h4>
+          <h4 class="footer__col-title">{t('footer.navigation')}</h4>
           <ul class="footer__list">
             {menuLinks.map((link) => (
               <li>
@@ -47,7 +56,7 @@ const socialLinks = [
 
         <!-- Social -->
         <div class="footer__col">
-          <h4 class="footer__col-title">Ijtimoiy tarmoqlar</h4>
+          <h4 class="footer__col-title">{t('footer.social')}</h4>
           <ul class="footer__list">
             {socialLinks.map((link) => (
               <li>
@@ -59,7 +68,7 @@ const socialLinks = [
 
         <!-- Contact -->
         <div class="footer__col">
-          <h4 class="footer__col-title">Kontakt</h4>
+          <h4 class="footer__col-title">{t('footer.contacts')}</h4>
           <div class="footer__contacts">
             <a href="tel:+998552037171" class="footer__contact-link">
               <svg class="footer__contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">

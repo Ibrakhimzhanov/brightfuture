@@ -1,11 +1,20 @@
 ---
 import ProjectCard from './ui/ProjectCard.astro';
 import Button from './ui/Button.astro';
+import { useTranslations, type Lang } from '../i18n';
 
 import snappyImg from '../assets/projects/snappy.png';
 import rizqImg from '../assets/projects/rizq.png';
 import oleoImg from '../assets/projects/oleo.png';
 import procareImg from '../assets/projects/procare.png';
+
+interface Props {
+  lang?: Lang;
+}
+
+const { lang = 'uz' } = Astro.props;
+const t = useTranslations(lang);
+const langPrefix = lang === 'uz' ? '' : `/${lang}`;
 
 interface Project {
   category: string;
@@ -25,7 +34,7 @@ const projects: Project[] = [
     total: '04',
     tag: 'Website',
     title: 'Snappy',
-    href: '/projects/snappy'
+    href: `${langPrefix}/projects/snappy`
   },
   {
     category: '3D Loyihalash',
@@ -34,7 +43,7 @@ const projects: Project[] = [
     total: '04',
     tag: '3D Dizayn',
     title: 'Rizq',
-    href: '/projects/rizq'
+    href: `${langPrefix}/projects/rizq`
   },
   {
     category: 'Branding',
@@ -43,7 +52,7 @@ const projects: Project[] = [
     total: '04',
     tag: 'Branding',
     title: 'Oleo',
-    href: '/projects/mimi'
+    href: `${langPrefix}/projects/mimi`
   },
   {
     category: 'Desktop ilova\nMobile ilova',
@@ -52,7 +61,7 @@ const projects: Project[] = [
     total: '04',
     tag: 'Desktop',
     title: 'ProCare',
-    href: '/projects/procare'
+    href: `${langPrefix}/projects/procare`
   }
 ];
 ---
@@ -71,10 +80,10 @@ const projects: Project[] = [
       <!-- Description -->
       <div class="projects__desc text-center max-w-md animate-on-scroll delay-100">
         <p class="text-h4 font-medium text-bf-black leading-normal">
-          Bizning ishimiz puxta tahlil, ijodiy
+          {t('projectsSection.desc1')}
         </p>
         <p class="text-h4 font-medium text-bf-black leading-normal">
-          fikrlash va mukammallikka intilish mahsulidir.
+          {t('projectsSection.desc2')}
         </p>
       </div>
 
@@ -83,7 +92,7 @@ const projects: Project[] = [
 
       <!-- Big Title -->
       <h2 class="projects__title text-center animate-on-scroll delay-300">
-        Loyihalar
+        {t('projectsSection.title')}
       </h2>
 
     </div>
@@ -105,13 +114,13 @@ const projects: Project[] = [
 
     <!-- View All Button -->
     <div class="projects__cta flex justify-center mt-16 lg:mt-20">
-      <a href="/projects" class="projects__btn group">
+      <a href={`${langPrefix}/projects`} class="projects__btn group">
         <span class="projects__btn-icon">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </span>
-        <span class="projects__btn-text">Barcha loyihalar</span>
+        <span class="projects__btn-text">{t('projectsSection.viewAll')}</span>
       </a>
     </div>
 

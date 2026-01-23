@@ -1,4 +1,13 @@
 ---
+import { useTranslations, type Lang } from '../i18n';
+
+interface Props {
+  lang?: Lang;
+}
+
+const { lang = 'uz' } = Astro.props;
+const t = useTranslations(lang);
+
 interface Service {
   title: string;
   tags: string[];
@@ -33,7 +42,7 @@ const services: Service[] = [
     
     <!-- Section Title -->
     <h2 class="text-h3 font-medium text-bf-black text-center mb-12 animate-on-scroll">
-      Bizning xizmatlar
+      {t('services.title')}
     </h2>
     
   </div>

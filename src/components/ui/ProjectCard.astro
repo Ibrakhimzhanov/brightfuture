@@ -8,18 +8,22 @@ interface Props {
   tag: string;
   title: string;
   href?: string;
+  modalImage?: string; // Путь к фото для модального окна (если указан - открывается модалка вместо перехода)
 }
 
-const { 
-  category, 
-  image, 
+const {
+  category,
+  image,
   imageAlt = '',
-  number, 
-  total, 
-  tag, 
+  number,
+  total,
+  tag,
   title,
-  href = '#'
+  href = '#',
+  modalImage
 } = Astro.props;
+
+const isModal = !!modalImage;
 ---
 
 <article class="project-card">
@@ -34,23 +38,48 @@ const {
     
     <!-- Center: Image -->
     <div class="project-card__image-wrap">
-      <a href={href} class="project-card__image-link group">
-        <img 
-          src={image} 
-          alt={imageAlt || title}
-          class="project-card__image"
-          loading="lazy"
-        />
-        
-        <!-- Hover overlay -->
-        <div class="project-card__overlay">
-          <span class="project-card__view-btn">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </span>
-        </div>
-      </a>
+      {isModal ? (
+        <a
+          href="#"
+          class="project-card__image-link group"
+          data-modal-image={modalImage}
+          data-modal-alt={title}
+        >
+          <img
+            src={image}
+            alt={imageAlt || title}
+            class="project-card__image"
+            loading="lazy"
+          />
+
+          <!-- Hover overlay -->
+          <div class="project-card__overlay">
+            <span class="project-card__view-btn">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+          </div>
+        </a>
+      ) : (
+        <a href={href} class="project-card__image-link group">
+          <img
+            src={image}
+            alt={imageAlt || title}
+            class="project-card__image"
+            loading="lazy"
+          />
+
+          <!-- Hover overlay -->
+          <div class="project-card__overlay">
+            <span class="project-card__view-btn">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+          </div>
+        </a>
+      )}
     </div>
     
     <!-- Right: Meta Info -->
@@ -72,11 +101,24 @@ const {
   </div>
   
   <!-- Title -->
-  <a href={href} class="project-card__title group">
-    <span class="text-h3 font-medium text-bf-black underline underline-offset-4 decoration-1 group-hover:text-bf-primary transition-colors duration-300">
-      {title}
-    </span>
-  </a>
+  {isModal ? (
+    <a
+      href="#"
+      class="project-card__title group"
+      data-modal-image={modalImage}
+      data-modal-alt={title}
+    >
+      <span class="text-h3 font-medium text-bf-black underline underline-offset-4 decoration-1 group-hover:text-bf-primary transition-colors duration-300">
+        {title}
+      </span>
+    </a>
+  ) : (
+    <a href={href} class="project-card__title group">
+      <span class="text-h3 font-medium text-bf-black underline underline-offset-4 decoration-1 group-hover:text-bf-primary transition-colors duration-300">
+        {title}
+      </span>
+    </a>
+  )}
 </article>
 
 <style>

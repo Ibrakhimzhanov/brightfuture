@@ -1,33 +1,46 @@
 ---
-// Contact Form section - single column layout
+import { useTranslations, type Lang } from '../i18n';
 
-const services = [
-  { name: 'UX/UI dizayni', selected: false, wide: false },
-  { name: 'Brending', selected: true, wide: false },
-  { name: 'Motion dizayn', selected: false, wide: false },
-  { name: 'Illustratsiya', selected: false, wide: false },
-  { name: '3D Dizayn', selected: false, wide: false },
-  { name: 'Ilovani noldan boshlab yaratish', selected: false, wide: true },
-  { name: 'Saytni noldan boshlab yaratish', selected: false, wide: true },
+interface Props {
+  lang?: Lang;
+}
+
+const { lang = 'uz' } = Astro.props;
+const t = useTranslations(lang);
+
+interface Service {
+  key: string;
+  selected: boolean;
+  wide: boolean;
+}
+
+const services: Service[] = [
+  { key: 'uxui', selected: false, wide: false },
+  { key: 'branding', selected: true, wide: false },
+  { key: 'motion', selected: false, wide: false },
+  { key: 'illustration', selected: false, wide: false },
+  { key: '3d', selected: false, wide: false },
+  { key: 'app', selected: false, wide: true },
+  { key: 'website', selected: false, wide: true },
 ];
 ---
 
 <section class="contact py-16 lg:py-24 bg-white" id="contact">
   <div class="container-bf">
-    
+
     <div class="contact__content">
-      
+
       <!-- Title -->
       <h2 class="contact__title animate-on-scroll">
-        Bizga hamma narsani aytib bering
+        {t('contact.title')}
       </h2>
-      
+
       <!-- Address & Contacts -->
       <div class="contact__info animate-on-scroll">
         <p class="contact__address-text">
           "Bright Future" ofisi, P9X8+432, Andijon, Andijon Viloyati
         </p>
-        
+
         <div class="contact__contacts">
           <!-- Email -->
           <a href="mailto:BrightFutureDesign@gmail.com" class="contact__link">
@@ -38,7 +51,7 @@ const services = [
             <span class="contact__divider"></span>
             <span>BrightFutureDesign@gmail.com</span>
           </a>
-          
+
           <!-- Phone -->
           <a href="tel:+998552037171" class="contact__link">
             <svg class="contact__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
@@ -49,61 +62,61 @@ const services = [
           </a>
         </div>
       </div>
-      
+
       <!-- Service Selection -->
       <div class="contact__services animate-on-scroll">
-        <p class="contact__services-label">Men qiziqaman...</p>
-        
+        <p class="contact__services-label">{t('contact.interested')}</p>
+
         <div class="contact__services-grid">
           {services.map((service) => (
-            <button 
+            <button
               type="button"
               class:list={[
                 'contact__service-btn',
                 service.selected && 'contact__service-btn--active', service.wide && 'contact__service-btn--wide'
               ]}
-              data-service={service.name}
+              data-service={service.key}
             >
-              {service.name}
+              {t(`contact.services.${service.key}`)}
             </button>
           ))}
         </div>
       </div>
-      
+
       <!-- Form Fields -->
       <form class="contact__form animate-on-scroll">
         <div class="contact__field">
-          <input 
-            type="text" 
-            name="name" 
-            placeholder="Ismingiz"
+          <input
+            type="text"
+            name="name"
+            placeholder={t('contact.name')}
             class="contact__input"
             required
           />
         </div>
-        
+
         <div class="contact__field">
-          <input 
-            type="tel" 
-            name="phone" 
-            placeholder="Telefon raqamingiz"
+          <input
+            type="tel"
+            name="phone"
+            placeholder={t('contact.phone')}
             class="contact__input"
             required
           />
         </div>
-        
+
         <div class="contact__field contact__field--textarea">
-          <textarea 
-            name="message" 
-            placeholder="Loyihangiz haqida aytib bering"
+          <textarea
+            name="message"
+            placeholder={t('contact.message')}
             class="contact__input contact__textarea"
             rows="3"
           ></textarea>
         </div>
-        
+
         <!-- Submit Button -->
         <button type="submit" class="contact__submit-btn group">
-          <span class="contact__submit-text">Yuborish</span>
+          <span class="contact__submit-text">{t('contact.send')}</span>
           <span class="contact__submit-icon">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
               <path d="M3.33334 8H12.6667M12.6667 8L8.00001 3.33334M12.6667 8L8.00001 12.6667" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -111,9 +124,9 @@ const services = [
           </span>
         </button>
       </form>
-      
+
     </div>
-    
+
   </div>
 </section>
 

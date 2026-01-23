@@ -1,9 +1,13 @@
 ---
+import { useTranslations, type Lang } from '../i18n';
+
 interface Props {
   class?: string;
+  lang?: Lang;
 }
 
-const { class: className = '' } = Astro.props;
+const { class: className = '', lang = 'uz' } = Astro.props;
+const t = useTranslations(lang);
 ---
 
 <section class:list={['py-16 lg:py-20 bg-white', className]} id="about">
@@ -13,16 +17,16 @@ const { class: className = '' } = Astro.props;
       <!-- Row 1: Title -->
       <div>
         <h1 class="text-[clamp(2rem,5vw,3.25rem)] font-medium leading-tight text-bf-black animate-on-scroll">
-          VIZUAL IDENTIFIKATSIYA
+          {t('about.title1')}
           <br />
-          VA INNOVATSIYA AGENTLIGI
+          {t('about.title2')}
         </h1>
       </div>
 
       <!-- Row 2: Description (right aligned) -->
       <div class="flex justify-end">
         <p class="text-body-lg text-bf-gray leading-relaxed max-w-[697px] about__desc animate-on-scroll delay-100">
-          Bright Future Design – zamonaviy UX/UI dizayn, brend konsepsiyasi, grafik dizayn va AI asosidagi yechimlarni ishlab chiqamiz. Brendingizni strategik yondashuv bilan shakllantirib, vizual kommunikatsiyani mustahkamlaymiz va brend qiymatini oshiramiz.
+          {t('about.description')}
         </p>
       </div>
 

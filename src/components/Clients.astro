@@ -1,4 +1,6 @@
 ---
+import { useTranslations, type Lang } from '../i18n';
+
 import anjanLogo from '../assets/clients/anjan.png';
 import procareLogo from '../assets/clients/procare.png';
 import saidovLogo from '../assets/clients/saidov.png';
@@ -15,6 +17,13 @@ import patriotLogo from '../assets/clients/Patriot.svg';
 import safeplogsLogo from '../assets/clients/Safeplogs.svg';
 import tikonchaLogo from '../assets/clients/Tikoncha.svg';
 import yoshlarVentureLogo from '../assets/clients/Yoshlar venture.svg';
+
+interface Props {
+  lang?: Lang;
+}
+
+const { lang = 'uz' } = Astro.props;
+const t = useTranslations(lang);
 
 interface Client {
   name: string;
@@ -50,16 +59,14 @@ const clients: Client[] = [
       <!-- Left: Title -->
       <div class="clients__title-wrap">
         <h2 class="clients__title animate-on-scroll">
-          BIZ MIJOZLARIMIZNING
-          MUVOFAQLIKLARI BILAN
-          FAXRLANAMIZ
+          {t('clients.title')}
         </h2>
       </div>
 
       <!-- Right: Description (aligned to bottom of title) -->
       <div class="clients__desc-wrap">
         <p class="clients__desc animate-on-scroll">
-          Biz mijozlarimizni muvaffaqiyatimizning eng muhim qismi deb bilamiz. Ularning yutuqlari bizni ilhomlantiradi va doimiy takomillashtirishga undaydi. Biz ularning muvaffaqiyat sari sayohatining bir qismi ekanligimizdan faxrlanamiz.
+          {t('clients.description')}
         </p>
       </div>
 

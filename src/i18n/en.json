@@ -1,0 +1,98 @@
+{
+  "nav": {
+    "home": "Home",
+    "projects": "Projects",
+    "clients": "Clients",
+    "services": "Services",
+    "contact": "Contact",
+    "getConsultation": "Get Consultation"
+  },
+  "hero": {
+    "prev": "Previous slide",
+    "next": "Next slide"
+  },
+  "about": {
+    "title1": "VISUAL IDENTITY",
+    "title2": "AND INNOVATION AGENCY",
+    "description": "Bright Future Design – we develop modern UX/UI design, brand concepts, graphic design and AI-based solutions. We shape your brand with a strategic approach, strengthen visual communication and increase brand value."
+  },
+  "stats": {
+    "stat1": {
+      "number": "10+",
+      "description": "Product design projects for industry leaders and Fortune 500 companies."
+    },
+    "stat2": {
+      "number": "100+",
+      "description": "Logo and branding projects from startups to multinational companies."
+    },
+    "stat3": {
+      "number": "10+",
+      "description": "Countries served with logo and branding projects."
+    },
+    "stat4": {
+      "number": "6+",
+      "description": "Years of experience in product and brand design."
+    }
+  },
+  "projects": {
+    "title": "Projects",
+    "viewAll": "View All",
+    "categories": {
+      "all": "All",
+      "webDesign": "Web Design",
+      "motionGraphics": "Motion Graphics",
+      "graphicDesign": "Graphic Design",
+      "branding": "Branding",
+      "3dDesign": "3D Design",
+      "appDesign": "App Design",
+      "packaging": "Packaging"
+    },
+    "emptyState": "No projects found in this category"
+  },
+  "clients": {
+    "title": "WE ARE PROUD OF OUR CLIENTS' SUCCESS",
+    "description": "We consider our clients the most important part of our success. Their achievements inspire us and drive us to constantly improve. We are proud to be part of their journey to success."
+  },
+  "services": {
+    "title": "Our Services"
+  },
+  "projectsSection": {
+    "desc1": "Our work is the result of thorough analysis,",
+    "desc2": "creative thinking and striving for excellence.",
+    "title": "Projects",
+    "viewAll": "All Projects"
+  },
+  "approach": {
+    "title": "We combine technology and art to create innovative designs that open new opportunities",
+    "description": "Our owners actively participate in the design process, ensuring a passionate and result-oriented experience. With our dedicated client service, we make things simple and efficient."
+  },
+  "contact": {
+    "title": "Tell us everything",
+    "interested": "I'm interested in...",
+    "name": "Your name",
+    "phone": "Your phone number",
+    "message": "Tell us about your project",
+    "send": "Send",
+    "services": {
+      "uxui": "UX/UI Design",
+      "branding": "Branding",
+      "motion": "Motion Design",
+      "illustration": "Illustration",
+      "3d": "3D Design",
+      "app": "Build an app from scratch",
+      "website": "Build a website from scratch"
+    }
+  },
+  "footer": {
+    "description": "Bright Future - modern design agency",
+    "navigation": "Navigation",
+    "contacts": "Contacts",
+    "social": "Social Media",
+    "rights": "All rights reserved"
+  },
+  "language": {
+    "uz": "Uzb",
+    "ru": "Rus",
+    "en": "Eng"
+  }
+}
