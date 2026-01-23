@@ -337,6 +337,10 @@ const motivImg = '/images/snappy/motiv.png';
   @media (max-width: 1024px) {
     .hero__info { grid-template-columns: 1fr; gap: 40px; }
     .hero__meta { flex-direction: row; gap: 60px; min-height: auto; }
+    .images-section__container { flex-direction: column; }
+    .showcase-section__container { flex-direction: column; align-items: center; }
+    .showcase-section__left { padding-top: 0; padding-bottom: 40px; }
+    .showcase-section__play, .showcase-section__badge { max-height: 400px; max-width: 100%; }
     .userresearch-cards { flex-direction: column; align-items: center; }
     .userresearch-cards__right { margin-top: 60px; }
   }
@@ -344,8 +348,45 @@ const motivImg = '/images/snappy/motiv.png';
   @media (max-width: 768px) {
     .hero { padding: 30px 0 50px; }
     .hero__container { padding: 0 24px; }
+    .hero__title { margin-bottom: 32px; }
     .hero__meta { flex-direction: column; gap: 24px; }
-    .about-section__title { font-size: 32px; text-align: left; }
-    .visitcard-section__title { font-size: 32px; }
+    .hero__company, .hero__year, .hero__about-title { font-size: 24px; }
+    .hero__about-text { font-size: 18px; }
+    .hero__tag { font-size: 18px; padding: 10px 20px; }
+
+    .about-section { padding: 60px 0; }
+    .about-section__container { padding: 0 24px; }
+    .section-label__num, .section-label__text { font-size: 20px; }
+    .about-section__title { font-size: 28px; text-align: left; }
+    .about-section__title br { display: none; }
+    .about-section__desc { font-size: 16px; }
+    .about-section__desc br { display: none; }
+
+    .images-section { padding: 40px 0; }
+    .images-section__container { padding: 0 24px; gap: 24px; }
+    .images-section__dj, .images-section__phone { border-radius: 16px; }
+
+    .branding-section { padding: 60px 0; }
+    .branding-section__container { padding: 0 24px; }
+    .branding-section__image { justify-content: center; }
+
+    .pixor-section { padding: 40px 0; }
+    .pixor-section__container { padding: 0 24px; justify-content: flex-start; }
+    .pixor-section__logo { height: 50px; }
+    .pixor-section__text { font-size: 16px; }
+
+    .showcase-section__container { padding: 0 24px; gap: 24px; }
+
+    .visitcard-section { padding: 60px 0; }
+    .visitcard-section__container { padding: 0 24px; }
+    .visitcard-section__title { font-size: 28px; margin-bottom: 30px; }
+
+    .playandpeople-section { padding: 100px 0; }
+
+    .userresearch-section { padding: 0 0 100px 0; }
+    .userresearch-section__container { padding: 0 24px; }
+
+    .motiv-section { padding: 60px 0; }
+    .motiv-section__container { padding: 0 24px; }
   }
 </style>

@@ -1029,8 +1029,16 @@ const lang = 'en';
   }
 
   @media (max-width: 768px) {
+    .hero {
+      padding: 30px 0 50px;
+    }
+
     .hero__container {
       padding: 0 24px;
+    }
+
+    .hero__title {
+      margin-bottom: 32px;
     }
 
     .hero__meta {
@@ -1048,18 +1056,379 @@ const lang = 'en';
       font-size: 18px;
     }
 
+    .hero__tag {
+      font-size: 18px;
+      padding: 10px 20px;
+    }
+
+    /* Brand Cover Mobile */
     .brand-cover {
+      height: auto;
+      min-height: 400px;
+      padding: 40px 24px;
+    }
+
+    .brand-cover__title {
+      font-size: 48px;
+    }
+
+    .brand-cover__subtitle {
+      font-size: 18px;
+    }
+
+    .brand-cover__footer {
+      padding-top: 60px;
+    }
+
+    .brand-cover__character {
+      width: 60%;
+      right: -20px;
+    }
+
+    /* Brand About Mobile */
+    .brand-about {
+      height: auto;
+      padding: 40px 24px;
+    }
+
+    .brand-about__title {
+      font-size: 32px;
+      margin-bottom: 24px;
+    }
+
+    .brand-about__text {
+      font-size: 16px;
+    }
+
+    .brand-about__character {
+      position: relative;
+      right: auto;
+      bottom: auto;
+      width: 200px;
+      margin: 30px auto 0;
+      display: block;
+    }
+
+    /* Brand Values Mobile */
+    .brand-values {
+      padding: 40px 24px;
+    }
+
+    .brand-values__title {
+      font-size: 32px;
+      margin-bottom: 24px;
+    }
+
+    .brand-values__text {
+      font-size: 16px;
+    }
+
+    /* Logotip Mobile */
+    .logotip {
+      height: auto;
       min-height: 500px;
       padding: 40px 24px;
     }
 
-    .brand-cover__footer {
-      padding-top: 100px;
+    .logotip__title {
+      font-size: 36px;
     }
 
-    .brand-cover__character {
-      width: 70%;
-      right: -30px;
+    .logotip__subtitle {
+      font-size: 16px;
+    }
+
+    .logotip__list li {
+      font-size: 16px;
+    }
+
+    .logotip__character {
+      height: 60%;
+      right: -20px;
+    }
+
+    /* Logotip Logo Mobile */
+    .logotip-logo {
+      padding: 40px 24px;
+    }
+
+    .logotip-logo__title {
+      position: static;
+      font-size: 32px;
+      margin-bottom: 30px;
+    }
+
+    .logotip-logo__image {
+      max-width: 280px;
+    }
+
+    /* Adaptive Logo Mobile */
+    .adaptive-logo {
+      padding: 40px 24px;
+    }
+
+    .adaptive-logo__title {
+      font-size: 32px;
+      margin-bottom: 30px;
+    }
+
+    .adaptive-logo__content {
+      flex-direction: column;
+      gap: 40px;
+    }
+
+    .adaptive-logo__main {
+      max-width: 250px;
+    }
+
+    .adaptive-logo__variants img {
+      max-width: 150px;
+    }
+
+    /* Himoya Hudud Mobile */
+    .himoya-hudud {
+      height: auto;
+      flex-direction: column;
+      padding: 40px 24px;
+      gap: 40px;
+    }
+
+    .himoya-hudud__content {
+      max-width: 100%;
+    }
+
+    .himoya-hudud__title {
+      font-size: 32px;
+      margin-bottom: 20px;
+    }
+
+    .himoya-hudud__text {
+      font-size: 14px;
+    }
+
+    .himoya-hudud__image {
+      max-width: 100%;
+    }
+
+    /* Minimal Size Mobile */
+    .minimal-size {
+      padding: 40px 24px;
+    }
+
+    .minimal-size__title {
+      font-size: 32px;
+    }
+
+    .minimal-size__text {
+      font-size: 16px;
+    }
+
+    .minimal-size__row {
+      flex-direction: column;
+      gap: 40px;
+      margin-top: 60px;
+      align-items: center;
+    }
+
+    .minimal-size__row > img {
+      max-height: 100px;
+    }
+
+    .minimal-size__last img {
+      height: 80px;
+    }
+
+    /* Colors Mobile */
+    .colors {
+      height: auto;
+      padding: 40px 24px;
+    }
+
+    .colors__title {
+      font-size: 32px;
+      margin-bottom: 30px;
+    }
+
+    /* Font Section Mobile */
+    .font-section {
+      padding: 60px 24px;
+    }
+
+    .font-section__title {
+      font-size: 32px;
+    }
+
+    .font-section__text {
+      font-size: 14px;
+      margin-bottom: 40px;
+    }
+
+    .font-section__text br {
+      display: none;
+    }
+
+    .font-section__content {
+      flex-direction: column;
+      gap: 30px;
+      align-items: flex-start;
+    }
+
+    .font-section__big {
+      font-size: 150px;
+    }
+
+    .font-section__alphabet {
+      font-size: 24px;
+    }
+
+    /* Identity Mobile */
+    .identity {
+      height: auto;
+      padding: 40px 24px;
+    }
+
+    .identity__title {
+      font-size: 36px;
+    }
+
+    .identity__subtitle {
+      font-size: 16px;
+    }
+
+    .identity__lists {
+      flex-direction: column;
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .identity__list li {
+      font-size: 16px;
+    }
+
+    .identity__character {
+      height: 50%;
+      right: -20px;
+    }
+
+    /* Vizitka Mobile */
+    .vizitka {
+      padding: 40px 24px;
+    }
+
+    .vizitka__title {
+      font-size: 32px;
+      margin-bottom: 24px;
+    }
+
+    .vizitka__grid {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    /* Vizitka Mockup Mobile */
+    .vizitka-mockup {
+      padding: 40px 24px;
+    }
+
+    .vizitka-mockup__title {
+      font-size: 32px;
+      margin-bottom: 30px;
+    }
+
+    .vizitka-mockup__image {
+      max-width: 100%;
+    }
+
+    /* Brend Paket Mobile */
+    .brend-paket {
+      padding: 40px 24px;
+    }
+
+    .brend-paket__title {
+      font-size: 32px;
+      margin-bottom: 30px;
+    }
+
+    .brend-paket__image {
+      max-width: 100%;
+    }
+
+    /* Futbolka Mobile */
+    .futbolka {
+      padding: 40px 24px;
+    }
+
+    .futbolka--orange {
+      padding-bottom: 0;
+    }
+
+    .futbolka__title {
+      font-size: 32px;
+      margin-bottom: 24px;
+    }
+
+    .futbolka__row {
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .futbolka__row img {
+      max-width: 100%;
+    }
+
+    /* Kamzur Mobile */
+    .kamzur {
+      padding: 40px 24px;
+    }
+
+    .kamzur__title {
+      font-size: 32px;
+      margin-bottom: 24px;
+    }
+
+    .kamzur__row {
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .kamzur__row img {
+      max-width: 100%;
+    }
+
+    /* Footer Banner Mobile */
+    .footer-banner {
+      height: auto;
+      min-height: 500px;
+      padding: 40px 24px;
+      flex-direction: column;
+    }
+
+    .footer-banner__title {
+      font-size: 32px;
+    }
+
+    .footer-banner__subtitle {
+      font-size: 20px;
+    }
+
+    .footer-banner__subtitle br {
+      display: none;
+    }
+
+    .footer-banner__copy {
+      margin-top: 40px;
+    }
+
+    .footer-banner__copy p {
+      font-size: 18px;
+    }
+
+    .footer-banner__logo {
+      position: relative;
+      right: auto;
+      bottom: auto;
+      width: 200px;
+      margin-top: 40px;
     }
   }
 </style>
