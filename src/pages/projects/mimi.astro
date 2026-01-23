@@ -2,6 +2,8 @@
 import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
+
+const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
 ---
 
 <Layout title="Mimi - Bright Future">
@@ -39,7 +41,7 @@ import Footer from '../../components/Footer.astro';
           <p>March / 2025</p>
         </div>
       </div>
-      <img src="/images/mimi/Layer_1.png" alt="MiMi Character" class="brand-cover__character" />
+      <img src={`${base}images/mimi/Layer_1.png`} alt="MiMi Character" class="brand-cover__character" />
     </section>
 
     <!-- ==================== SECTION 3: BRAND ABOUT ==================== -->
@@ -49,7 +51,7 @@ import Footer from '../../components/Footer.astro';
         <p class="brand-about__text">MiMi Land — bolalar uchun sifatli oziq-ovqat, parfyumeriya va ehtiyoj tovarlarini taqdim etuvchi brend. Har bir mahsulot xavfsizlik va sifat talablariga mos ravishda tanlanadi.</p>
         <p class="brand-about__text">Mijozlarga qulaylik yaratish maqsadida doimiy maslahat va shaxsiy yondashuv joriy etilgan. Ota-onalar bolalar parvarishi va mahsulot tanlovi bo'yicha foydali tavsiyalar olishi, sodiqlik dasturi orqali esa yoqimli bonuslarga ega bo'lishi mumkin.</p>
         <p class="brand-about__text">MiMi Land — nafaqat xarid qilish joyi, balki ota-onalar uchun ishonchli yordamchi va bolajonlar uchun g'amxo'rlik timsoli.</p>
-        <img src="/images/mimi/Group.png" alt="MiMi Character" class="brand-about__character" />
+        <img src={`${base}images/mimi/Group.png`} alt="MiMi Character" class="brand-about__character" />
       </div>
       
     </section>
@@ -77,22 +79,22 @@ import Footer from '../../components/Footer.astro';
           <li>identifikatsiya elementlari</li>
         </ul>
       </div>
-      <img src="/images/mimi/lisoval.png" alt="MiMi Character" class="logotip__character" />
+      <img src={`${base}images/mimi/lisoval.png`} alt="MiMi Character" class="logotip__character" />
     </section>
 
     <!-- ==================== SECTION 6: LOGOTIP LOGO ==================== -->
     <section class="logotip-logo">
       <h2 class="logotip-logo__title">Logotip</h2>
-      <img src="/images/mimi/Group (3).png" alt="MiMi Land Logo" class="logotip-logo__image" />
+      <img src={`${base}images/mimi/Group (3).png`} alt="MiMi Land Logo" class="logotip-logo__image" />
     </section>
 
     <!-- ==================== SECTION 7: ADAPTIVE LOGO ==================== -->
     <section class="adaptive-logo">
       <h2 class="adaptive-logo__title">Moslashuvchan logotip</h2>
       <div class="adaptive-logo__content">
-        <img src="/images/mimi/Group (3).png" alt="MiMi Land Logo" class="adaptive-logo__main" />
+        <img src={`${base}images/mimi/Group (3).png`} alt="MiMi Land Logo" class="adaptive-logo__main" />
         <div class="adaptive-logo__variants">
-          <img src="/images/mimi/mimilogo.png" alt="MiMi Logo Variant" />
+          <img src={`${base}images/mimi/mimilogo.png`} alt="MiMi Logo Variant" />
 
         </div>
       </div>
@@ -107,7 +109,7 @@ import Footer from '../../components/Footer.astro';
         <p class="himoya-hudud__text">Ushbu hudud ichida har qanday grafik elementlar, tipografiya yoki boshqa vizual artefaktlarni joylashtirish taqiqlanadi.</p>
         <p class="himoya-hudud__text">Bu logotipning aniq ko'rinishini ta'minlash va vizual izchillikni saqlash uchun zarur.</p>
       </div>
-      <img src="/images/mimi/Group 7.png" alt="Logo Protection Zone" class="himoya-hudud__image" />
+      <img src={`${base}images/mimi/Group 7.png`} alt="Logo Protection Zone" class="himoya-hudud__image" />
     </section>
 
     <!-- ==================== SECTION 9: MINIMAL SIZE ==================== -->
@@ -115,10 +117,10 @@ import Footer from '../../components/Footer.astro';
       <h2 class="minimal-size__title">Minimal o'cham</h2>
       <p class="minimal-size__text">Logotipning minimal balandligi 50px yoki 12mm dan kam bo'lishi tavsiya etilmaydi. Bu uning o'ziga xosligi va o'qilishi buzilmasligi uchun zarur minimal hajmdir.</p>
       <div class="minimal-size__row">
-        <img src="/images/mimi/carry1.png" alt="Logo 1" />
-        <img src="/images/mimi/carry2.png" alt="Logo 2" />
+        <img src={`${base}images/mimi/carry1.png`} alt="Logo 1" />
+        <img src={`${base}images/mimi/carry2.png`} alt="Logo 2" />
         <div class="minimal-size__last">
-          <img src="/images/mimi/carry3.png" alt="Logo 3" />
+          <img src={`${base}images/mimi/carry3.png`} alt="Logo 3" />
         </div>
       </div>
     </section>
@@ -126,7 +128,7 @@ import Footer from '../../components/Footer.astro';
     <!-- ==================== SECTION 10: COLORS ==================== -->
     <section class="colors">
       <h2 class="colors__title">Korporativ ranglar</h2>
-      <img src="/images/mimi/ccloud.png" alt="Korporativ ranglar" class="colors__image" />
+      <img src={`${base}images/mimi/ccloud.png`} alt="Korporativ ranglar" class="colors__image" />
     </section>
 
     <!-- ==================== SECTION 11: FONT ==================== -->
@@ -164,44 +166,44 @@ import Footer from '../../components/Footer.astro';
           </ul>
         </div>
       </div>
-      <img src="/images/mimi/Group (7).png" alt="MiMi Character" class="identity__character" />
+      <img src={`${base}images/mimi/Group (7).png`} alt="MiMi Character" class="identity__character" />
     </section>
 
     <!-- ==================== SECTION 13: VIZITKA ==================== -->
     <section class="vizitka">
       <h2 class="vizitka__title">Vizitka</h2>
       <div class="vizitka__grid">
-        <img src="/images/mimi/1.png" alt="Vizitka 1" />
-        <img src="/images/mimi/2.png" alt="Vizitka 2" />
-        <img src="/images/mimi/3.png" alt="Vizitka 3" />
-        <img src="/images/mimi/4.png" alt="Vizitka 4" />
+        <img src={`${base}images/mimi/1.png`} alt="Vizitka 1" />
+        <img src={`${base}images/mimi/2.png`} alt="Vizitka 2" />
+        <img src={`${base}images/mimi/3.png`} alt="Vizitka 3" />
+        <img src={`${base}images/mimi/4.png`} alt="Vizitka 4" />
       </div>
     </section>
 
     <!-- ==================== SECTION 14: VIZITKA MOCKUP ==================== -->
     <section class="vizitka-mockup">
       <h2 class="vizitka-mockup__title">Vizitka</h2>
-      <img src="/images/mimi/card.png" alt="Vizitka Mockup" class="vizitka-mockup__image" />
+      <img src={`${base}images/mimi/card.png`} alt="Vizitka Mockup" class="vizitka-mockup__image" />
     </section>
 
     <!-- ==================== SECTION 15: BREND PAKET 1 ==================== -->
     <section class="brend-paket brend-paket--light">
       <h2 class="brend-paket__title brend-paket__title--dark">Brend paket</h2>
-      <img src="/images/mimi/paket.png" alt="Brend Paket" class="brend-paket__image" />
+      <img src={`${base}images/mimi/paket.png`} alt="Brend Paket" class="brend-paket__image" />
     </section>
 
     <!-- ==================== SECTION 16: BREND PAKET 2 ==================== -->
     <section class="brend-paket brend-paket--orange">
       <h2 class="brend-paket__title">Brend paket</h2>
-      <img src="/images/mimi/paket.png" alt="Brend Paket" class="brend-paket__image" />
+      <img src={`${base}images/mimi/paket.png`} alt="Brend Paket" class="brend-paket__image" />
     </section>
 
     <!-- ==================== SECTION 17: FUTBOLKA 1 ==================== -->
     <section class="futbolka futbolka--light">
       <h2 class="futbolka__title futbolka__title--dark">Futbolka</h2>
       <div class="futbolka__row">
-        <img src="/images/mimi/Group 10.png" alt="Futbolka Front" />
-        <img src="/images/mimi/Group 11.png" alt="Futbolka Back" />
+        <img src={`${base}images/mimi/Group 10.png`} alt="Futbolka Front" />
+        <img src={`${base}images/mimi/Group 11.png`} alt="Futbolka Back" />
       </div>
     </section>
 
@@ -209,8 +211,8 @@ import Footer from '../../components/Footer.astro';
     <section class="futbolka futbolka--orange">
       <h2 class="futbolka__title">Futbolka</h2>
       <div class="futbolka__row">
-        <img src="/images/mimi/yxxy -40 copy.png" alt="Futbolka Model 1" />
-        <img src="/images/mimi/yxxy -51 copy.png" alt="Futbolka Model 2" />
+        <img src={`${base}images/mimi/yxxy -40 copy.png`} alt="Futbolka Model 1" />
+        <img src={`${base}images/mimi/yxxy -51 copy.png`} alt="Futbolka Model 2" />
       </div>
     </section>
 
@@ -218,15 +220,15 @@ import Footer from '../../components/Footer.astro';
     <section class="kamzur kamzur--light">
       <h2 class="kamzur__title kamzur__title--dark">Kamzur</h2>
       <div class="kamzur__row">
-        <img src="/images/mimi/Group 12.png" alt="Kamzur Front" />
-        <img src="/images/mimi/Group 13.png" alt="Kamzur Back" />
+        <img src={`${base}images/mimi/Group 12.png`} alt="Kamzur Front" />
+        <img src={`${base}images/mimi/Group 13.png`} alt="Kamzur Back" />
       </div>
     </section>
 
     <!-- ==================== SECTION 20: KAMZUR 2 ==================== -->
     <section class="kamzur kamzur--orange">
       <h2 class="kamzur__title">Kamzur</h2>
-      <img src="/images/mimi/Waistcoat_mockup_side_view copy 1.png" alt="Kamzur Mockup" class="kamzur__mockup" />
+      <img src={`${base}images/mimi/Waistcoat_mockup_side_view copy 1.png`} alt="Kamzur Mockup" class="kamzur__mockup" />
     </section>
 
     <!-- ==================== SECTION 21: FOOTER BANNER ==================== -->
@@ -239,7 +241,7 @@ import Footer from '../../components/Footer.astro';
           <p>Mart / 2025</p>
         </div>
       </div>
-      <img src="/images/mimi/Group 19.png" alt="MiMi Land Logo" class="footer-banner__logo" />
+      <img src={`${base}images/mimi/Group 19.png`} alt="MiMi Land Logo" class="footer-banner__logo" />
     </section>
 
   </main>

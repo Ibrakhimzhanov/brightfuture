@@ -4,10 +4,11 @@ import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 
 // Images
-const img1 = '/images/rizq/1.png';
-const img2 = '/images/rizq/2.png';
-const img3 = '/images/rizq/3.png';
-const img4 = '/images/rizq/4.png';
+const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
+const img1 = `${base}images/rizq/1.png`;
+const img2 = `${base}images/rizq/2.png`;
+const img3 = `${base}images/rizq/3.png`;
+const img4 = `${base}images/rizq/4.png`;
 ---
 
 <Layout title="Rizq - Bright Future">

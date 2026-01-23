@@ -6,18 +6,19 @@ import Footer from '../../../components/Footer.astro';
 const lang = 'en';
 
 // Images
-const laptopImg = '/images/snappy/laptop.png';
-const djImg = '/images/snappy/dj.png';
-const phoneAppImg = '/images/snappy/phone-app.png';
-const playLineImg = '/images/snappy/play-line.png';
-const pixorLogoImg = '/images/snappy/pixorlogo.png';
-const playFioletImg = '/images/snappy/playfiolet.png';
-const bidjekImg = '/images/snappy/bidjek.png';
-const visitcardImg = '/images/snappy/visitcard.png';
-const playandpeopleImg = '/images/snappy/playandpeople.png';
-const dashImg = '/images/snappy/dash.png';
-const leftdashImg = '/images/snappy/leftdash.png';
-const motivImg = '/images/snappy/motiv.png';
+const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
+const laptopImg = `${base}images/snappy/laptop.png`;
+const djImg = `${base}images/snappy/dj.png`;
+const phoneAppImg = `${base}images/snappy/phone-app.png`;
+const playLineImg = `${base}images/snappy/play-line.png`;
+const pixorLogoImg = `${base}images/snappy/pixorlogo.png`;
+const playFioletImg = `${base}images/snappy/playfiolet.png`;
+const bidjekImg = `${base}images/snappy/bidjek.png`;
+const visitcardImg = `${base}images/snappy/visitcard.png`;
+const playandpeopleImg = `${base}images/snappy/playandpeople.png`;
+const dashImg = `${base}images/snappy/dash.png`;
+const leftdashImg = `${base}images/snappy/leftdash.png`;
+const motivImg = `${base}images/snappy/motiv.png`;
 ---
 
 <Layout title="Snappy - Bright Future">

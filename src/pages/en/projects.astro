@@ -10,6 +10,7 @@ import oleoImg from '../../assets/projects/oleo.png';
 import procareImg from '../../assets/projects/procare.png';
 
 const lang = 'en';
+const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
 
 // Category filters
 const categories = [
@@ -26,30 +27,30 @@ const categories = [
 // All projects
 const allProjects = [
   // Branding
-  { image: '/images/Pokla.png', title: 'Pokla', description: 'Branding project', tag: 'Branding', modalImage: '/images/Pokla.png' },
-  { image: oleoImg.src, title: 'Oleo', description: 'Brand design', tag: 'Branding', href: '/en/projects/mimi' },
-  { image: '/images/BF.png', title: 'BF', description: 'Branding project', tag: 'Branding', modalImage: '/images/BF.png' },
-  { image: '/images/Dcard.png', title: 'Dcard', description: 'Card design', tag: 'Branding', modalImage: '/images/Dcard.png' },
-  { image: '/images/Tikoncha.png', title: 'Tikoncha', description: 'Branding project', tag: 'Branding', modalImage: '/images/Tikoncha.png' },
+  { image: `${base}images/Pokla.png`, title: 'Pokla', description: 'Branding project', tag: 'Branding', modalImage: `${base}images/Pokla.png` },
+  { image: oleoImg.src, title: 'Oleo', description: 'Brand design', tag: 'Branding', href: `${base}en/projects/mimi` },
+  { image: `${base}images/BF.png`, title: 'BF', description: 'Branding project', tag: 'Branding', modalImage: `${base}images/BF.png` },
+  { image: `${base}images/Dcard.png`, title: 'Dcard', description: 'Card design', tag: 'Branding', modalImage: `${base}images/Dcard.png` },
+  { image: `${base}images/Tikoncha.png`, title: 'Tikoncha', description: 'Branding project', tag: 'Branding', modalImage: `${base}images/Tikoncha.png` },
 
   // Web Design
-  { image: snappyImg.src, title: 'Snappy', description: 'Streaming platform', tag: 'Web Dizayn', href: '/en/projects/snappy' },
-  { image: '/images/web/Bright Future.png', title: 'Bright Future', description: 'Website design', tag: 'Web Dizayn', modalImage: '/images/web/Bright Future.png' },
-  { image: '/images/web/Davo delivery.png', title: 'Davo Delivery', description: 'Delivery service', tag: 'Web Dizayn', modalImage: '/images/web/Davo delivery.png' },
-  { image: '/images/web/PirateHub.png', title: 'PirateHub', description: 'Website design', tag: 'Web Dizayn', modalImage: '/images/web/PirateHub.png' },
-  { image: '/images/web/Poligraf extra.png', title: 'Poligraf Extra', description: 'Printing services', tag: 'Web Dizayn', modalImage: '/images/web/Poligraf extra.png' },
-  { image: '/images/web/Pro Care.png', title: 'Pro Care', description: 'Medical website', tag: 'Web Dizayn', modalImage: '/images/web/Pro Care.png' },
-  { image: '/images/web/Safe Logs.png', title: 'Safe Logs', description: 'Security system', tag: 'Web Dizayn', modalImage: '/images/web/Safe Logs.png' },
-  { image: '/images/web/TXT Group.png', title: 'TXT Group', description: 'Corporate website', tag: 'Web Dizayn', modalImage: '/images/web/TXT Group.png' },
+  { image: snappyImg.src, title: 'Snappy', description: 'Streaming platform', tag: 'Web Dizayn', href: `${base}en/projects/snappy` },
+  { image: `${base}images/web/Bright Future.png`, title: 'Bright Future', description: 'Website design', tag: 'Web Dizayn', modalImage: `${base}images/web/Bright Future.png` },
+  { image: `${base}images/web/Davo delivery.png`, title: 'Davo Delivery', description: 'Delivery service', tag: 'Web Dizayn', modalImage: `${base}images/web/Davo delivery.png` },
+  { image: `${base}images/web/PirateHub.png`, title: 'PirateHub', description: 'Website design', tag: 'Web Dizayn', modalImage: `${base}images/web/PirateHub.png` },
+  { image: `${base}images/web/Poligraf extra.png`, title: 'Poligraf Extra', description: 'Printing services', tag: 'Web Dizayn', modalImage: `${base}images/web/Poligraf extra.png` },
+  { image: `${base}images/web/Pro Care.png`, title: 'Pro Care', description: 'Medical website', tag: 'Web Dizayn', modalImage: `${base}images/web/Pro Care.png` },
+  { image: `${base}images/web/Safe Logs.png`, title: 'Safe Logs', description: 'Security system', tag: 'Web Dizayn', modalImage: `${base}images/web/Safe Logs.png` },
+  { image: `${base}images/web/TXT Group.png`, title: 'TXT Group', description: 'Corporate website', tag: 'Web Dizayn', modalImage: `${base}images/web/TXT Group.png` },
 
   // App Design
-  { image: procareImg.src, title: 'ProCare', description: 'Medical app', tag: 'App Dizayn', href: '/en/projects/procare' },
+  { image: procareImg.src, title: 'ProCare', description: 'Medical app', tag: 'App Dizayn', href: `${base}en/projects/procare` },
 
   // 3D Design
-  { image: rizqImg.src, title: 'Rizq', description: '3D visualization', tag: '3D Dizayn', href: '/en/projects/rizq' },
+  { image: rizqImg.src, title: 'Rizq', description: '3D visualization', tag: '3D Dizayn', href: `${base}en/projects/rizq` },
 
   // Packaging
-  { image: '/images/Andijon package.png', title: 'Andijon', description: 'Package design', tag: 'Packaging', modalImage: '/images/Andijon package.png' },
+  { image: `${base}images/Andijon package.png`, title: 'Andijon', description: 'Package design', tag: 'Packaging', modalImage: `${base}images/Andijon package.png` },
 ];
 
 // Top row

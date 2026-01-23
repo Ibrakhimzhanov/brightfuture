@@ -9,6 +9,8 @@ import rizqImg from '../assets/projects/rizq.png';
 import oleoImg from '../assets/projects/oleo.png';
 import procareImg from '../assets/projects/procare.png';
 
+const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
+
 // Категории фильтров с маппингом на теги проектов
 const categories = [
   { name: 'Barchasi', filter: 'all', active: true },
@@ -24,30 +26,30 @@ const categories = [
 // Все проекты
 const allProjects = [
   // Branding
-  { image: '/images/Pokla.png', title: 'Pokla', description: 'Branding loyihasi', tag: 'Branding', modalImage: '/images/Pokla.png' },
-  { image: oleoImg.src, title: 'Oleo', description: 'Branding dizayni', tag: 'Branding', href: '/projects/mimi' },
-  { image: '/images/BF.png', title: 'BF', description: 'Branding loyihasi', tag: 'Branding', modalImage: '/images/BF.png' },
-  { image: '/images/Dcard.png', title: 'Dcard', description: 'Karta dizayni', tag: 'Branding', modalImage: '/images/Dcard.png' },
-  { image: '/images/Tikoncha.png', title: 'Tikoncha', description: 'Branding loyihasi', tag: 'Branding', modalImage: '/images/Tikoncha.png' },
+  { image: `${base}images/Pokla.png`, title: 'Pokla', description: 'Branding loyihasi', tag: 'Branding', modalImage: `${base}images/Pokla.png` },
+  { image: oleoImg.src, title: 'Oleo', description: 'Branding dizayni', tag: 'Branding', href: `${base}projects/mimi` },
+  { image: `${base}images/BF.png`, title: 'BF', description: 'Branding loyihasi', tag: 'Branding', modalImage: `${base}images/BF.png` },
+  { image: `${base}images/Dcard.png`, title: 'Dcard', description: 'Karta dizayni', tag: 'Branding', modalImage: `${base}images/Dcard.png` },
+  { image: `${base}images/Tikoncha.png`, title: 'Tikoncha', description: 'Branding loyihasi', tag: 'Branding', modalImage: `${base}images/Tikoncha.png` },
 
   // Web Dizayn
-  { image: snappyImg.src, title: 'Snappy', description: 'Striming platformasi', tag: 'Web Dizayn', href: '/projects/snappy' },
-  { image: '/images/web/Bright Future.png', title: 'Bright Future', description: 'Veb-sayt dizayni', tag: 'Web Dizayn', modalImage: '/images/web/Bright Future.png' },
-  { image: '/images/web/Davo delivery.png', title: 'Davo Delivery', description: 'Yetkazib berish xizmati', tag: 'Web Dizayn', modalImage: '/images/web/Davo delivery.png' },
-  { image: '/images/web/PirateHub.png', title: 'PirateHub', description: 'Veb-sayt dizayni', tag: 'Web Dizayn', modalImage: '/images/web/PirateHub.png' },
-  { image: '/images/web/Poligraf extra.png', title: 'Poligraf Extra', description: 'Poligrafiya xizmatlari', tag: 'Web Dizayn', modalImage: '/images/web/Poligraf extra.png' },
-  { image: '/images/web/Pro Care.png', title: 'Pro Care', description: 'Tibbiyot veb-sayti', tag: 'Web Dizayn', modalImage: '/images/web/Pro Care.png' },
-  { image: '/images/web/Safe Logs.png', title: 'Safe Logs', description: 'Xavfsizlik tizimi', tag: 'Web Dizayn', modalImage: '/images/web/Safe Logs.png' },
-  { image: '/images/web/TXT Group.png', title: 'TXT Group', description: 'Korporativ veb-sayt', tag: 'Web Dizayn', modalImage: '/images/web/TXT Group.png' },
+  { image: snappyImg.src, title: 'Snappy', description: 'Striming platformasi', tag: 'Web Dizayn', href: `${base}projects/snappy` },
+  { image: `${base}images/web/Bright Future.png`, title: 'Bright Future', description: 'Veb-sayt dizayni', tag: 'Web Dizayn', modalImage: `${base}images/web/Bright Future.png` },
+  { image: `${base}images/web/Davo delivery.png`, title: 'Davo Delivery', description: 'Yetkazib berish xizmati', tag: 'Web Dizayn', modalImage: `${base}images/web/Davo delivery.png` },
+  { image: `${base}images/web/PirateHub.png`, title: 'PirateHub', description: 'Veb-sayt dizayni', tag: 'Web Dizayn', modalImage: `${base}images/web/PirateHub.png` },
+  { image: `${base}images/web/Poligraf extra.png`, title: 'Poligraf Extra', description: 'Poligrafiya xizmatlari', tag: 'Web Dizayn', modalImage: `${base}images/web/Poligraf extra.png` },
+  { image: `${base}images/web/Pro Care.png`, title: 'Pro Care', description: 'Tibbiyot veb-sayti', tag: 'Web Dizayn', modalImage: `${base}images/web/Pro Care.png` },
+  { image: `${base}images/web/Safe Logs.png`, title: 'Safe Logs', description: 'Xavfsizlik tizimi', tag: 'Web Dizayn', modalImage: `${base}images/web/Safe Logs.png` },
+  { image: `${base}images/web/TXT Group.png`, title: 'TXT Group', description: 'Korporativ veb-sayt', tag: 'Web Dizayn', modalImage: `${base}images/web/TXT Group.png` },
 
   // App Dizayn
-  { image: procareImg.src, title: 'ProCare', description: 'Tibbiy ilova', tag: 'App Dizayn', href: '/projects/procare' },
+  { image: procareImg.src, title: 'ProCare', description: 'Tibbiy ilova', tag: 'App Dizayn', href: `${base}projects/procare` },
 
   // 3D Dizayn
-  { image: rizqImg.src, title: 'Rizq', description: '3D vizualizatsiya', tag: '3D Dizayn', href: '/projects/rizq' },
+  { image: rizqImg.src, title: 'Rizq', description: '3D vizualizatsiya', tag: '3D Dizayn', href: `${base}projects/rizq` },
 
   // Packaging
-  { image: '/images/Andijon package.png', title: 'Andijon', description: 'Qadoq dizayni', tag: 'Packaging', modalImage: '/images/Andijon package.png' },
+  { image: `${base}images/Andijon package.png`, title: 'Andijon', description: 'Qadoq dizayni', tag: 'Packaging', modalImage: `${base}images/Andijon package.png` },
 ];
 
 // Верхний ряд (движется вправо) - микс разных категорий

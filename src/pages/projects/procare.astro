@@ -3,24 +3,25 @@ import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 
+const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
 const images = {
-  procareLogo: '/images/procare/Procare_logo.png',
-  phoneHand: '/images/procare/phone-hand.png',
-  phoneList: '/images/procare/phone-list.png',
-  desktop: '/images/procare/desktop.png',
-  branding: '/images/procare/branding.png',
-  uiux: '/images/procare/uiux.png',
-  marketing: '/images/procare/marketing.png',
-  handPhone: '/images/procare/hand-phone.png',
-  handApp: '/images/procare/hand-app.png',
-  status: '/images/procare/status.png',
-  appLeft: '/images/procare/Procareapp-left.png',
-  appRight: '/images/procare/Procareapp-right.png',
-  laptop1: '/images/procare/laptop-1.png',
-  laptop2: '/images/procare/laptop-2.png',
-  logo: '/images/procare/logo.png',
-  webPlatform: '/images/procare/web-platworm.png',
-  appMarketing: '/images/procare/appmarketing.png',
+  procareLogo: `${base}images/procare/Procare_logo.png`,
+  phoneHand: `${base}images/procare/phone-hand.png`,
+  phoneList: `${base}images/procare/phone-list.png`,
+  desktop: `${base}images/procare/desktop.png`,
+  branding: `${base}images/procare/branding.png`,
+  uiux: `${base}images/procare/uiux.png`,
+  marketing: `${base}images/procare/marketing.png`,
+  handPhone: `${base}images/procare/hand-phone.png`,
+  handApp: `${base}images/procare/hand-app.png`,
+  status: `${base}images/procare/status.png`,
+  appLeft: `${base}images/procare/Procareapp-left.png`,
+  appRight: `${base}images/procare/Procareapp-right.png`,
+  laptop1: `${base}images/procare/laptop-1.png`,
+  laptop2: `${base}images/procare/laptop-2.png`,
+  logo: `${base}images/procare/logo.png`,
+  webPlatform: `${base}images/procare/web-platworm.png`,
+  appMarketing: `${base}images/procare/appmarketing.png`,
 };
 ---
 

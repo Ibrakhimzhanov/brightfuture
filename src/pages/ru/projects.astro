@@ -10,6 +10,7 @@ import oleoImg from '../../assets/projects/oleo.png';
 import procareImg from '../../assets/projects/procare.png';
 
 const lang = 'ru';
+const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
 
 // Категории фильтров
 const categories = [
@@ -26,30 +27,30 @@ const categories = [
 // Все проекты
 const allProjects = [
   // Branding
-  { image: '/images/Pokla.png', title: 'Pokla', description: 'Проект брендинга', tag: 'Branding', modalImage: '/images/Pokla.png' },
-  { image: oleoImg.src, title: 'Oleo', description: 'Дизайн бренда', tag: 'Branding', href: '/ru/projects/mimi' },
-  { image: '/images/BF.png', title: 'BF', description: 'Проект брендинга', tag: 'Branding', modalImage: '/images/BF.png' },
-  { image: '/images/Dcard.png', title: 'Dcard', description: 'Дизайн карты', tag: 'Branding', modalImage: '/images/Dcard.png' },
-  { image: '/images/Tikoncha.png', title: 'Tikoncha', description: 'Проект брендинга', tag: 'Branding', modalImage: '/images/Tikoncha.png' },
+  { image: `${base}images/Pokla.png`, title: 'Pokla', description: 'Проект брендинга', tag: 'Branding', modalImage: `${base}images/Pokla.png` },
+  { image: oleoImg.src, title: 'Oleo', description: 'Дизайн бренда', tag: 'Branding', href: `${base}ru/projects/mimi` },
+  { image: `${base}images/BF.png`, title: 'BF', description: 'Проект брендинга', tag: 'Branding', modalImage: `${base}images/BF.png` },
+  { image: `${base}images/Dcard.png`, title: 'Dcard', description: 'Дизайн карты', tag: 'Branding', modalImage: `${base}images/Dcard.png` },
+  { image: `${base}images/Tikoncha.png`, title: 'Tikoncha', description: 'Проект брендинга', tag: 'Branding', modalImage: `${base}images/Tikoncha.png` },
 
   // Web Dizayn
-  { image: snappyImg.src, title: 'Snappy', description: 'Стриминговая платформа', tag: 'Web Dizayn', href: '/ru/projects/snappy' },
-  { image: '/images/web/Bright Future.png', title: 'Bright Future', description: 'Дизайн веб-сайта', tag: 'Web Dizayn', modalImage: '/images/web/Bright Future.png' },
-  { image: '/images/web/Davo delivery.png', title: 'Davo Delivery', description: 'Служба доставки', tag: 'Web Dizayn', modalImage: '/images/web/Davo delivery.png' },
-  { image: '/images/web/PirateHub.png', title: 'PirateHub', description: 'Дизайн веб-сайта', tag: 'Web Dizayn', modalImage: '/images/web/PirateHub.png' },
-  { image: '/images/web/Poligraf extra.png', title: 'Poligraf Extra', description: 'Полиграфические услуги', tag: 'Web Dizayn', modalImage: '/images/web/Poligraf extra.png' },
-  { image: '/images/web/Pro Care.png', title: 'Pro Care', description: 'Медицинский сайт', tag: 'Web Dizayn', modalImage: '/images/web/Pro Care.png' },
-  { image: '/images/web/Safe Logs.png', title: 'Safe Logs', description: 'Система безопасности', tag: 'Web Dizayn', modalImage: '/images/web/Safe Logs.png' },
-  { image: '/images/web/TXT Group.png', title: 'TXT Group', description: 'Корпоративный сайт', tag: 'Web Dizayn', modalImage: '/images/web/TXT Group.png' },
+  { image: snappyImg.src, title: 'Snappy', description: 'Стриминговая платформа', tag: 'Web Dizayn', href: `${base}ru/projects/snappy` },
+  { image: `${base}images/web/Bright Future.png`, title: 'Bright Future', description: 'Дизайн веб-сайта', tag: 'Web Dizayn', modalImage: `${base}images/web/Bright Future.png` },
+  { image: `${base}images/web/Davo delivery.png`, title: 'Davo Delivery', description: 'Служба доставки', tag: 'Web Dizayn', modalImage: `${base}images/web/Davo delivery.png` },
+  { image: `${base}images/web/PirateHub.png`, title: 'PirateHub', description: 'Дизайн веб-сайта', tag: 'Web Dizayn', modalImage: `${base}images/web/PirateHub.png` },
+  { image: `${base}images/web/Poligraf extra.png`, title: 'Poligraf Extra', description: 'Полиграфические услуги', tag: 'Web Dizayn', modalImage: `${base}images/web/Poligraf extra.png` },
+  { image: `${base}images/web/Pro Care.png`, title: 'Pro Care', description: 'Медицинский сайт', tag: 'Web Dizayn', modalImage: `${base}images/web/Pro Care.png` },
+  { image: `${base}images/web/Safe Logs.png`, title: 'Safe Logs', description: 'Система безопасности', tag: 'Web Dizayn', modalImage: `${base}images/web/Safe Logs.png` },
+  { image: `${base}images/web/TXT Group.png`, title: 'TXT Group', description: 'Корпоративный сайт', tag: 'Web Dizayn', modalImage: `${base}images/web/TXT Group.png` },
 
   // App Dizayn
-  { image: procareImg.src, title: 'ProCare', description: 'Медицинское приложение', tag: 'App Dizayn', href: '/ru/projects/procare' },
+  { image: procareImg.src, title: 'ProCare', description: 'Медицинское приложение', tag: 'App Dizayn', href: `${base}ru/projects/procare` },
 
   // 3D Dizayn
-  { image: rizqImg.src, title: 'Rizq', description: '3D визуализация', tag: '3D Dizayn', href: '/ru/projects/rizq' },
+  { image: rizqImg.src, title: 'Rizq', description: '3D визуализация', tag: '3D Dizayn', href: `${base}ru/projects/rizq` },
 
   // Packaging
-  { image: '/images/Andijon package.png', title: 'Andijon', description: 'Дизайн упаковки', tag: 'Packaging', modalImage: '/images/Andijon package.png' },
+  { image: `${base}images/Andijon package.png`, title: 'Andijon', description: 'Дизайн упаковки', tag: 'Packaging', modalImage: `${base}images/Andijon package.png` },
 ];
 
 // Верхний ряд
