@@ -2,8 +2,8 @@ import { defineConfig } from 'astro/config';
 import tailwind from '@astrojs/tailwind';
 
 export default defineConfig({
-  site: 'https://ibrakhimzhanov.github.io',
-  base: '/brightfuture/',
+  site: 'https://brightfuture-alpha.vercel.app',
+  base: '/',
   integrations: [tailwind()],
   i18n: {
     defaultLocale: 'uz',
