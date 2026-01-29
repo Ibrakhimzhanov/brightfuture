@@ -416,7 +416,7 @@ const services: Service[] = [
     });
   });
 
-  // Form submission
+  // Form submission - direct to FormSubmit
   const form = document.querySelector('.contact__form');
   if (form) {
     form.addEventListener('submit', async (e) => {
@@ -439,27 +439,30 @@ const services: Service[] = [
 
       // Disable button
       submitBtn.disabled = true;
-      submitText.textContent = 'Отправка...';
+      submitText.textContent = 'Yuborilmoqda...';
 
       try {
-        const response = await fetch('/api/contact', {
+        const response = await fetch('https://formsubmit.co/ajax/ibrokhimovabrorbek1@gmail.com', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
+            'Accept': 'application/json'
           },
           body: JSON.stringify({
-            name,
-            phone,
-            message,
-            services: selectedServices
+            name: name,
+            phone: phone,
+            message: message || 'Xabar yo\'q',
+            services: selectedServices || 'Tanlanmagan',
+            _subject: `Yangi so'rov: ${name}`,
+            _template: 'table'
           })
         });
 
         const data = await response.json();
 
-        if (response.ok) {
+        if (data.success === 'true' || response.ok) {
           // Success
-          submitText.textContent = '✓ Отправлено!';
+          submitText.textContent = '✓ Yuborildi!';
           form.reset();
           // Reset selected services
           document.querySelectorAll('.contact__service-btn--active').forEach(btn => {
@@ -472,11 +475,11 @@ const services: Service[] = [
             submitBtn.disabled = false;
           }, 3000);
         } else {
-          throw new Error(data.error || 'Failed to send');
+          throw new Error('Failed to send');
         }
       } catch (error) {
         console.error('Form error:', error);
-        submitText.textContent = '✗ Ошибка';
+        submitText.textContent = '✗ Xatolik';
         setTimeout(() => {
           submitText.textContent = originalText;
           submitBtn.disabled = false;
