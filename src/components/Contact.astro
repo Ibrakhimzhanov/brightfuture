@@ -415,4 +415,73 @@ const services: Service[] = [
       btn.classList.toggle('contact__service-btn--active');
     });
   });
+
+  // Form submission
+  const form = document.querySelector('.contact__form');
+  if (form) {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const submitBtn = form.querySelector('.contact__submit-btn');
+      const submitText = submitBtn.querySelector('.contact__submit-text');
+      const originalText = submitText.textContent;
+
+      // Get form data
+      const formData = new FormData(form);
+      const name = formData.get('name');
+      const phone = formData.get('phone');
+      const message = formData.get('message');
+
+      // Get selected services
+      const selectedServices = Array.from(
+        document.querySelectorAll('.contact__service-btn--active')
+      ).map(btn => btn.textContent.trim()).join(', ');
+
+      // Disable button
+      submitBtn.disabled = true;
+      submitText.textContent = 'Отправка...';
+
+      try {
+        const response = await fetch('/api/contact', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            name,
+            phone,
+            message,
+            services: selectedServices
+          })
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+          // Success
+          submitText.textContent = '✓ Отправлено!';
+          form.reset();
+          // Reset selected services
+          document.querySelectorAll('.contact__service-btn--active').forEach(btn => {
+            btn.classList.remove('contact__service-btn--active');
+          });
+
+          // Reset button after 3 seconds
+          setTimeout(() => {
+            submitText.textContent = originalText;
+            submitBtn.disabled = false;
+          }, 3000);
+        } else {
+          throw new Error(data.error || 'Failed to send');
+        }
+      } catch (error) {
+        console.error('Form error:', error);
+        submitText.textContent = '✗ Ошибка';
+        setTimeout(() => {
+          submitText.textContent = originalText;
+          submitBtn.disabled = false;
+        }, 3000);
+      }
+    });
+  }
 </script>
